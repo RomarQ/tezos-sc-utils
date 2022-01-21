@@ -115,11 +115,18 @@ class Bytes:
     @staticmethod
     def of_string(text):
         b = sp.pack(text)
+        # Remove (packed prefix), (Data identifier) and (string length)
+        # - Packed prefix: 0x05 (1 byte)
+        # - Data identifier: (string = 0x01) (1 byte)
+        # - String length (4 bytes)
         return sp.slice(b, 6, sp.as_nat(sp.len(b) - 6)).open_some("Could not encode string to bytes.")
 
     @staticmethod
     def of_nat(number):
         b = sp.pack(number)
+        # Remove (packed prefix), (Data identifier)
+        # - Packed prefix: 0x05 (1 byte)
+        # - Data identifier: (int = 0x00) (1 byte)
         return sp.slice(b, 2, sp.as_nat(sp.len(b) - 2)).open_some("Could not encode nat to bytes.")
 
 class String:
@@ -259,10 +266,10 @@ class String:
         lengthBytes = sp.local("lengthBytes", Bytes.of_nat(sp.len(b)))
         with sp.while_(sp.len(lengthBytes.value) < 4):
             lengthBytes.value = sp.bytes("0x00") + lengthBytes.value
-        # Append (packed prefix) + (length prefix) + (string length) + (string bytes)
-        # - Packed prefix: 0x05
-        # - Length prefix: 0x01
-        # - String length uses 4 bytes (e.g. 00000036 => 54 chars)
+        # Append (packed prefix) + (Data identifier) + (string length) + (string bytes)
+        # - Packed prefix: 0x05 (1 byte)
+        # - Data identifier: (string = 0x01) (1 byte)
+        # - String length (4 bytes)
         # - String bytes
         packedBytes = sp.concat([sp.bytes("0x05"), sp.bytes("0x01"), lengthBytes.value, b])
         return sp.unpack(packedBytes, sp.TString).open_some("Could not decode bytes to string")

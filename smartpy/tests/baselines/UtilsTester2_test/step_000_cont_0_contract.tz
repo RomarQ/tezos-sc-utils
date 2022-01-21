@@ -40,7 +40,7 @@ code
             ISNAT;      # option nat : string : string
             IF_NONE
               {
-                PUSH int 280; # int : string : string
+                PUSH int 287; # int : string : string
                 FAILWITH;   # FAILED
               }
               {}; # @some : string : string
@@ -76,18 +76,18 @@ code
             SLICE;      # option string : map string int : nat : nat : int : string : string
             IF_NONE
               {
-                PUSH int 284; # int : map string int : nat : nat : int : string : string
+                PUSH int 291; # int : map string int : nat : nat : int : string : string
                 FAILWITH;   # FAILED
               }
               {}; # @some : map string int : nat : nat : int : string : string
             GET;        # option int : nat : nat : int : string : string
             IF_NONE
               {
-                PUSH int 284; # int : nat : nat : int : string : string
+                PUSH int 291; # int : nat : nat : int : string : string
                 FAILWITH;   # FAILED
               }
               {
-                # of_some: Get-item:284 # @some : nat : nat : int : string : string
+                # of_some: Get-item:291 # @some : nat : nat : int : string : string
               }; # @some : nat : nat : int : string : string
             DIG 3;      # int : @some : nat : nat : string : string
             PUSH int 10; # int : int : @some : nat : nat : string : string
@@ -464,7 +464,7 @@ code
             EDIV;       # option (pair nat nat) : map nat string : list string : nat : int
             IF_NONE
               {
-                PUSH int 246; # int : map nat string : list string : nat : int
+                PUSH int 253; # int : map nat string : list string : nat : int
                 FAILWITH;   # FAILED
               }
               {
@@ -473,11 +473,11 @@ code
             GET;        # option string : list string : nat : int
             IF_NONE
               {
-                PUSH int 246; # int : list string : nat : int
+                PUSH int 253; # int : list string : nat : int
                 FAILWITH;   # FAILED
               }
               {
-                # of_some: Get-item:246 # @some : list string : nat : int
+                # of_some: Get-item:253 # @some : list string : nat : int
               }; # @some : list string : nat : int
             CONS;       # list string : nat : int
             # utils_10.value //= 10 # list string : nat : int
@@ -486,7 +486,7 @@ code
             EDIV;       # option (pair nat nat) : list string : int
             IF_NONE
               {
-                PUSH int 247; # int : list string : int
+                PUSH int 254; # int : list string : int
                 FAILWITH;   # FAILED
               }
               {
@@ -551,7 +551,7 @@ code
             SLICE;      # option string : string : nat : nat : list string : nat : pair string string
             IF_NONE
               {
-                PUSH int 228; # int : string : nat : nat : list string : nat : pair string string
+                PUSH int 235; # int : string : nat : nat : list string : nat : pair string string
                 FAILWITH;   # FAILED
               }
               {}; # @some : string : nat : nat : list string : nat : pair string string
@@ -569,7 +569,7 @@ code
                 ISNAT;      # option nat : string : list string : nat : nat : nat : pair string string
                 IF_NONE
                   {
-                    PUSH int 229; # int : string : list string : nat : nat : nat : pair string string
+                    PUSH int 236; # int : string : list string : nat : nat : nat : pair string string
                     FAILWITH;   # FAILED
                   }
                   {}; # @some : string : list string : nat : nat : nat : pair string string
@@ -577,7 +577,7 @@ code
                 SLICE;      # option string : list string : nat : nat : pair string string
                 IF_NONE
                   {
-                    PUSH int 229; # int : list string : nat : nat : pair string string
+                    PUSH int 236; # int : list string : nat : nat : pair string string
                     FAILWITH;   # FAILED
                   }
                   {}; # @some : list string : nat : nat : pair string string
@@ -619,7 +619,7 @@ code
             ISNAT;      # option nat : string : list string : nat
             IF_NONE
               {
-                PUSH int 232; # int : string : list string : nat
+                PUSH int 239; # int : string : list string : nat
                 FAILWITH;   # FAILED
               }
               {}; # @some : string : list string : nat
@@ -627,7 +627,7 @@ code
             SLICE;      # option string : list string
             IF_NONE
               {
-                PUSH int 232; # int : list string
+                PUSH int 239; # int : list string
                 FAILWITH;   # FAILED
               }
               {}; # @some : list string
@@ -704,7 +704,7 @@ code
         EDIV;       # option (pair nat nat) : map nat string : list string : nat : @parameter : @storage : lambda (pair string string) bool : lambda (pair string string) (list string) : lambda int string : lambda (pair string string) bool : lambda (pair nat nat) nat : lambda (list nat) nat : lambda string int
         IF_NONE
           {
-            PUSH int 246; # int : map nat string : list string : nat : @parameter : @storage : lambda (pair string string) bool : lambda (pair string string) (list string) : lambda int string : lambda (pair string string) bool : lambda (pair nat nat) nat : lambda (list nat) nat : lambda string int
+            PUSH int 253; # int : map nat string : list string : nat : @parameter : @storage : lambda (pair string string) bool : lambda (pair string string) (list string) : lambda int string : lambda (pair string string) bool : lambda (pair nat nat) nat : lambda (list nat) nat : lambda string int
             FAILWITH;   # FAILED
           }
           {
@@ -713,11 +713,11 @@ code
         GET;        # option string : list string : nat : @parameter : @storage : lambda (pair string string) bool : lambda (pair string string) (list string) : lambda int string : lambda (pair string string) bool : lambda (pair nat nat) nat : lambda (list nat) nat : lambda string int
         IF_NONE
           {
-            PUSH int 246; # int : list string : nat : @parameter : @storage : lambda (pair string string) bool : lambda (pair string string) (list string) : lambda int string : lambda (pair string string) bool : lambda (pair nat nat) nat : lambda (list nat) nat : lambda string int
+            PUSH int 253; # int : list string : nat : @parameter : @storage : lambda (pair string string) bool : lambda (pair string string) (list string) : lambda int string : lambda (pair string string) bool : lambda (pair nat nat) nat : lambda (list nat) nat : lambda string int
             FAILWITH;   # FAILED
           }
           {
-            # of_some: Get-item:246 # @some : list string : nat : @parameter : @storage : lambda (pair string string) bool : lambda (pair string string) (list string) : lambda int string : lambda (pair string string) bool : lambda (pair nat nat) nat : lambda (list nat) nat : lambda string int
+            # of_some: Get-item:253 # @some : list string : nat : @parameter : @storage : lambda (pair string string) bool : lambda (pair string string) (list string) : lambda int string : lambda (pair string string) bool : lambda (pair nat nat) nat : lambda (list nat) nat : lambda string int
           }; # @some : list string : nat : @parameter : @storage : lambda (pair string string) bool : lambda (pair string string) (list string) : lambda int string : lambda (pair string string) bool : lambda (pair nat nat) nat : lambda (list nat) nat : lambda string int
         CONS;       # list string : nat : @parameter : @storage : lambda (pair string string) bool : lambda (pair string string) (list string) : lambda int string : lambda (pair string string) bool : lambda (pair nat nat) nat : lambda (list nat) nat : lambda string int
         # utils_16.value //= 10 # list string : nat : @parameter : @storage : lambda (pair string string) bool : lambda (pair string string) (list string) : lambda int string : lambda (pair string string) bool : lambda (pair nat nat) nat : lambda (list nat) nat : lambda string int
@@ -726,7 +726,7 @@ code
         EDIV;       # option (pair nat nat) : list string : @parameter : @storage : lambda (pair string string) bool : lambda (pair string string) (list string) : lambda int string : lambda (pair string string) bool : lambda (pair nat nat) nat : lambda (list nat) nat : lambda string int
         IF_NONE
           {
-            PUSH int 247; # int : list string : @parameter : @storage : lambda (pair string string) bool : lambda (pair string string) (list string) : lambda int string : lambda (pair string string) bool : lambda (pair nat nat) nat : lambda (list nat) nat : lambda string int
+            PUSH int 254; # int : list string : @parameter : @storage : lambda (pair string string) bool : lambda (pair string string) (list string) : lambda int string : lambda (pair string string) bool : lambda (pair nat nat) nat : lambda (list nat) nat : lambda string int
             FAILWITH;   # FAILED
           }
           {
@@ -787,7 +787,7 @@ code
         EDIV;       # option (pair nat nat) : map nat string : list string : nat : string : list string : nat : @parameter : @storage : lambda (pair string string) bool : lambda (pair string string) (list string) : lambda int string : lambda (pair string string) bool : lambda (pair nat nat) nat : lambda (list nat) nat : lambda string int
         IF_NONE
           {
-            PUSH int 246; # int : map nat string : list string : nat : string : list string : nat : @parameter : @storage : lambda (pair string string) bool : lambda (pair string string) (list string) : lambda int string : lambda (pair string string) bool : lambda (pair nat nat) nat : lambda (list nat) nat : lambda string int
+            PUSH int 253; # int : map nat string : list string : nat : string : list string : nat : @parameter : @storage : lambda (pair string string) bool : lambda (pair string string) (list string) : lambda int string : lambda (pair string string) bool : lambda (pair nat nat) nat : lambda (list nat) nat : lambda string int
             FAILWITH;   # FAILED
           }
           {
@@ -796,11 +796,11 @@ code
         GET;        # option string : list string : nat : string : list string : nat : @parameter : @storage : lambda (pair string string) bool : lambda (pair string string) (list string) : lambda int string : lambda (pair string string) bool : lambda (pair nat nat) nat : lambda (list nat) nat : lambda string int
         IF_NONE
           {
-            PUSH int 246; # int : list string : nat : string : list string : nat : @parameter : @storage : lambda (pair string string) bool : lambda (pair string string) (list string) : lambda int string : lambda (pair string string) bool : lambda (pair nat nat) nat : lambda (list nat) nat : lambda string int
+            PUSH int 253; # int : list string : nat : string : list string : nat : @parameter : @storage : lambda (pair string string) bool : lambda (pair string string) (list string) : lambda int string : lambda (pair string string) bool : lambda (pair nat nat) nat : lambda (list nat) nat : lambda string int
             FAILWITH;   # FAILED
           }
           {
-            # of_some: Get-item:246 # @some : list string : nat : string : list string : nat : @parameter : @storage : lambda (pair string string) bool : lambda (pair string string) (list string) : lambda int string : lambda (pair string string) bool : lambda (pair nat nat) nat : lambda (list nat) nat : lambda string int
+            # of_some: Get-item:253 # @some : list string : nat : string : list string : nat : @parameter : @storage : lambda (pair string string) bool : lambda (pair string string) (list string) : lambda int string : lambda (pair string string) bool : lambda (pair nat nat) nat : lambda (list nat) nat : lambda string int
           }; # @some : list string : nat : string : list string : nat : @parameter : @storage : lambda (pair string string) bool : lambda (pair string string) (list string) : lambda int string : lambda (pair string string) bool : lambda (pair nat nat) nat : lambda (list nat) nat : lambda string int
         CONS;       # list string : nat : string : list string : nat : @parameter : @storage : lambda (pair string string) bool : lambda (pair string string) (list string) : lambda int string : lambda (pair string string) bool : lambda (pair nat nat) nat : lambda (list nat) nat : lambda string int
         # utils_19.value //= 10 # list string : nat : string : list string : nat : @parameter : @storage : lambda (pair string string) bool : lambda (pair string string) (list string) : lambda int string : lambda (pair string string) bool : lambda (pair nat nat) nat : lambda (list nat) nat : lambda string int
@@ -809,7 +809,7 @@ code
         EDIV;       # option (pair nat nat) : list string : string : list string : nat : @parameter : @storage : lambda (pair string string) bool : lambda (pair string string) (list string) : lambda int string : lambda (pair string string) bool : lambda (pair nat nat) nat : lambda (list nat) nat : lambda string int
         IF_NONE
           {
-            PUSH int 247; # int : list string : string : list string : nat : @parameter : @storage : lambda (pair string string) bool : lambda (pair string string) (list string) : lambda int string : lambda (pair string string) bool : lambda (pair nat nat) nat : lambda (list nat) nat : lambda string int
+            PUSH int 254; # int : list string : string : list string : nat : @parameter : @storage : lambda (pair string string) bool : lambda (pair string string) (list string) : lambda int string : lambda (pair string string) bool : lambda (pair nat nat) nat : lambda (list nat) nat : lambda string int
             FAILWITH;   # FAILED
           }
           {
@@ -882,7 +882,7 @@ code
         ISNAT;      # option nat : string : string : list string : nat : string : list string : nat : @parameter : @storage : lambda (pair string string) bool : lambda (pair string string) (list string) : lambda int string : lambda (pair string string) bool : lambda (pair nat nat) nat : lambda (list nat) nat : lambda string int
         IF_NONE
           {
-            PUSH int 280; # int : string : string : list string : nat : string : list string : nat : @parameter : @storage : lambda (pair string string) bool : lambda (pair string string) (list string) : lambda int string : lambda (pair string string) bool : lambda (pair nat nat) nat : lambda (list nat) nat : lambda string int
+            PUSH int 287; # int : string : string : list string : nat : string : list string : nat : @parameter : @storage : lambda (pair string string) bool : lambda (pair string string) (list string) : lambda int string : lambda (pair string string) bool : lambda (pair nat nat) nat : lambda (list nat) nat : lambda string int
             FAILWITH;   # FAILED
           }
           {}; # @some : string : string : list string : nat : string : list string : nat : @parameter : @storage : lambda (pair string string) bool : lambda (pair string string) (list string) : lambda int string : lambda (pair string string) bool : lambda (pair nat nat) nat : lambda (list nat) nat : lambda string int
@@ -918,18 +918,18 @@ code
         SLICE;      # option string : map string int : nat : nat : int : string : string : list string : nat : string : list string : nat : @parameter : @storage : lambda (pair string string) bool : lambda (pair string string) (list string) : lambda int string : lambda (pair string string) bool : lambda (pair nat nat) nat : lambda (list nat) nat : lambda string int
         IF_NONE
           {
-            PUSH int 284; # int : map string int : nat : nat : int : string : string : list string : nat : string : list string : nat : @parameter : @storage : lambda (pair string string) bool : lambda (pair string string) (list string) : lambda int string : lambda (pair string string) bool : lambda (pair nat nat) nat : lambda (list nat) nat : lambda string int
+            PUSH int 291; # int : map string int : nat : nat : int : string : string : list string : nat : string : list string : nat : @parameter : @storage : lambda (pair string string) bool : lambda (pair string string) (list string) : lambda int string : lambda (pair string string) bool : lambda (pair nat nat) nat : lambda (list nat) nat : lambda string int
             FAILWITH;   # FAILED
           }
           {}; # @some : map string int : nat : nat : int : string : string : list string : nat : string : list string : nat : @parameter : @storage : lambda (pair string string) bool : lambda (pair string string) (list string) : lambda int string : lambda (pair string string) bool : lambda (pair nat nat) nat : lambda (list nat) nat : lambda string int
         GET;        # option int : nat : nat : int : string : string : list string : nat : string : list string : nat : @parameter : @storage : lambda (pair string string) bool : lambda (pair string string) (list string) : lambda int string : lambda (pair string string) bool : lambda (pair nat nat) nat : lambda (list nat) nat : lambda string int
         IF_NONE
           {
-            PUSH int 284; # int : nat : nat : int : string : string : list string : nat : string : list string : nat : @parameter : @storage : lambda (pair string string) bool : lambda (pair string string) (list string) : lambda int string : lambda (pair string string) bool : lambda (pair nat nat) nat : lambda (list nat) nat : lambda string int
+            PUSH int 291; # int : nat : nat : int : string : string : list string : nat : string : list string : nat : @parameter : @storage : lambda (pair string string) bool : lambda (pair string string) (list string) : lambda int string : lambda (pair string string) bool : lambda (pair nat nat) nat : lambda (list nat) nat : lambda string int
             FAILWITH;   # FAILED
           }
           {
-            # of_some: Get-item:284 # @some : nat : nat : int : string : string : list string : nat : string : list string : nat : @parameter : @storage : lambda (pair string string) bool : lambda (pair string string) (list string) : lambda int string : lambda (pair string string) bool : lambda (pair nat nat) nat : lambda (list nat) nat : lambda string int
+            # of_some: Get-item:291 # @some : nat : nat : int : string : string : list string : nat : string : list string : nat : @parameter : @storage : lambda (pair string string) bool : lambda (pair string string) (list string) : lambda int string : lambda (pair string string) bool : lambda (pair nat nat) nat : lambda (list nat) nat : lambda string int
           }; # @some : nat : nat : int : string : string : list string : nat : string : list string : nat : @parameter : @storage : lambda (pair string string) bool : lambda (pair string string) (list string) : lambda int string : lambda (pair string string) bool : lambda (pair nat nat) nat : lambda (list nat) nat : lambda string int
         DIG 3;      # int : @some : nat : nat : string : string : list string : nat : string : list string : nat : @parameter : @storage : lambda (pair string string) bool : lambda (pair string string) (list string) : lambda int string : lambda (pair string string) bool : lambda (pair nat nat) nat : lambda (list nat) nat : lambda string int
         PUSH int 10; # int : int : @some : nat : nat : string : string : list string : nat : string : list string : nat : @parameter : @storage : lambda (pair string string) bool : lambda (pair string string) (list string) : lambda int string : lambda (pair string string) bool : lambda (pair nat nat) nat : lambda (list nat) nat : lambda string int
@@ -1014,7 +1014,7 @@ code
         ISNAT;      # option nat : string : int : string : string : list string : nat : string : list string : nat : @parameter : @storage : lambda (pair string string) bool : lambda (pair string string) (list string) : lambda int string : lambda (pair string string) bool : lambda (pair nat nat) nat : lambda (list nat) nat : lambda string int
         IF_NONE
           {
-            PUSH int 280; # int : string : int : string : string : list string : nat : string : list string : nat : @parameter : @storage : lambda (pair string string) bool : lambda (pair string string) (list string) : lambda int string : lambda (pair string string) bool : lambda (pair nat nat) nat : lambda (list nat) nat : lambda string int
+            PUSH int 287; # int : string : int : string : string : list string : nat : string : list string : nat : @parameter : @storage : lambda (pair string string) bool : lambda (pair string string) (list string) : lambda int string : lambda (pair string string) bool : lambda (pair nat nat) nat : lambda (list nat) nat : lambda string int
             FAILWITH;   # FAILED
           }
           {}; # @some : string : int : string : string : list string : nat : string : list string : nat : @parameter : @storage : lambda (pair string string) bool : lambda (pair string string) (list string) : lambda int string : lambda (pair string string) bool : lambda (pair nat nat) nat : lambda (list nat) nat : lambda string int
@@ -1050,18 +1050,18 @@ code
         SLICE;      # option string : map string int : nat : nat : int : string : int : string : string : list string : nat : string : list string : nat : @parameter : @storage : lambda (pair string string) bool : lambda (pair string string) (list string) : lambda int string : lambda (pair string string) bool : lambda (pair nat nat) nat : lambda (list nat) nat : lambda string int
         IF_NONE
           {
-            PUSH int 284; # int : map string int : nat : nat : int : string : int : string : string : list string : nat : string : list string : nat : @parameter : @storage : lambda (pair string string) bool : lambda (pair string string) (list string) : lambda int string : lambda (pair string string) bool : lambda (pair nat nat) nat : lambda (list nat) nat : lambda string int
+            PUSH int 291; # int : map string int : nat : nat : int : string : int : string : string : list string : nat : string : list string : nat : @parameter : @storage : lambda (pair string string) bool : lambda (pair string string) (list string) : lambda int string : lambda (pair string string) bool : lambda (pair nat nat) nat : lambda (list nat) nat : lambda string int
             FAILWITH;   # FAILED
           }
           {}; # @some : map string int : nat : nat : int : string : int : string : string : list string : nat : string : list string : nat : @parameter : @storage : lambda (pair string string) bool : lambda (pair string string) (list string) : lambda int string : lambda (pair string string) bool : lambda (pair nat nat) nat : lambda (list nat) nat : lambda string int
         GET;        # option int : nat : nat : int : string : int : string : string : list string : nat : string : list string : nat : @parameter : @storage : lambda (pair string string) bool : lambda (pair string string) (list string) : lambda int string : lambda (pair string string) bool : lambda (pair nat nat) nat : lambda (list nat) nat : lambda string int
         IF_NONE
           {
-            PUSH int 284; # int : nat : nat : int : string : int : string : string : list string : nat : string : list string : nat : @parameter : @storage : lambda (pair string string) bool : lambda (pair string string) (list string) : lambda int string : lambda (pair string string) bool : lambda (pair nat nat) nat : lambda (list nat) nat : lambda string int
+            PUSH int 291; # int : nat : nat : int : string : int : string : string : list string : nat : string : list string : nat : @parameter : @storage : lambda (pair string string) bool : lambda (pair string string) (list string) : lambda int string : lambda (pair string string) bool : lambda (pair nat nat) nat : lambda (list nat) nat : lambda string int
             FAILWITH;   # FAILED
           }
           {
-            # of_some: Get-item:284 # @some : nat : nat : int : string : int : string : string : list string : nat : string : list string : nat : @parameter : @storage : lambda (pair string string) bool : lambda (pair string string) (list string) : lambda int string : lambda (pair string string) bool : lambda (pair nat nat) nat : lambda (list nat) nat : lambda string int
+            # of_some: Get-item:291 # @some : nat : nat : int : string : int : string : string : list string : nat : string : list string : nat : @parameter : @storage : lambda (pair string string) bool : lambda (pair string string) (list string) : lambda int string : lambda (pair string string) bool : lambda (pair nat nat) nat : lambda (list nat) nat : lambda string int
           }; # @some : nat : nat : int : string : int : string : string : list string : nat : string : list string : nat : @parameter : @storage : lambda (pair string string) bool : lambda (pair string string) (list string) : lambda int string : lambda (pair string string) bool : lambda (pair nat nat) nat : lambda (list nat) nat : lambda string int
         DIG 3;      # int : @some : nat : nat : string : int : string : string : list string : nat : string : list string : nat : @parameter : @storage : lambda (pair string string) bool : lambda (pair string string) (list string) : lambda int string : lambda (pair string string) bool : lambda (pair nat nat) nat : lambda (list nat) nat : lambda string int
         PUSH int 10; # int : int : @some : nat : nat : string : int : string : string : list string : nat : string : list string : nat : @parameter : @storage : lambda (pair string string) bool : lambda (pair string string) (list string) : lambda int string : lambda (pair string string) bool : lambda (pair nat nat) nat : lambda (list nat) nat : lambda string int
@@ -1149,7 +1149,7 @@ code
         SLICE;      # option string : string : nat : nat : list string : nat : int : string : int : string : string : list string : nat : string : list string : nat : @parameter : @storage : lambda (pair string string) bool : lambda (pair string string) (list string) : lambda int string : lambda (pair string string) bool : lambda (pair nat nat) nat : lambda (list nat) nat : lambda string int
         IF_NONE
           {
-            PUSH int 228; # int : string : nat : nat : list string : nat : int : string : int : string : string : list string : nat : string : list string : nat : @parameter : @storage : lambda (pair string string) bool : lambda (pair string string) (list string) : lambda int string : lambda (pair string string) bool : lambda (pair nat nat) nat : lambda (list nat) nat : lambda string int
+            PUSH int 235; # int : string : nat : nat : list string : nat : int : string : int : string : string : list string : nat : string : list string : nat : @parameter : @storage : lambda (pair string string) bool : lambda (pair string string) (list string) : lambda int string : lambda (pair string string) bool : lambda (pair nat nat) nat : lambda (list nat) nat : lambda string int
             FAILWITH;   # FAILED
           }
           {}; # @some : string : nat : nat : list string : nat : int : string : int : string : string : list string : nat : string : list string : nat : @parameter : @storage : lambda (pair string string) bool : lambda (pair string string) (list string) : lambda int string : lambda (pair string string) bool : lambda (pair nat nat) nat : lambda (list nat) nat : lambda string int
@@ -1166,7 +1166,7 @@ code
             ISNAT;      # option nat : string : list string : nat : nat : nat : int : string : int : string : string : list string : nat : string : list string : nat : @parameter : @storage : lambda (pair string string) bool : lambda (pair string string) (list string) : lambda int string : lambda (pair string string) bool : lambda (pair nat nat) nat : lambda (list nat) nat : lambda string int
             IF_NONE
               {
-                PUSH int 229; # int : string : list string : nat : nat : nat : int : string : int : string : string : list string : nat : string : list string : nat : @parameter : @storage : lambda (pair string string) bool : lambda (pair string string) (list string) : lambda int string : lambda (pair string string) bool : lambda (pair nat nat) nat : lambda (list nat) nat : lambda string int
+                PUSH int 236; # int : string : list string : nat : nat : nat : int : string : int : string : string : list string : nat : string : list string : nat : @parameter : @storage : lambda (pair string string) bool : lambda (pair string string) (list string) : lambda int string : lambda (pair string string) bool : lambda (pair nat nat) nat : lambda (list nat) nat : lambda string int
                 FAILWITH;   # FAILED
               }
               {}; # @some : string : list string : nat : nat : nat : int : string : int : string : string : list string : nat : string : list string : nat : @parameter : @storage : lambda (pair string string) bool : lambda (pair string string) (list string) : lambda int string : lambda (pair string string) bool : lambda (pair nat nat) nat : lambda (list nat) nat : lambda string int
@@ -1174,7 +1174,7 @@ code
             SLICE;      # option string : list string : nat : nat : int : string : int : string : string : list string : nat : string : list string : nat : @parameter : @storage : lambda (pair string string) bool : lambda (pair string string) (list string) : lambda int string : lambda (pair string string) bool : lambda (pair nat nat) nat : lambda (list nat) nat : lambda string int
             IF_NONE
               {
-                PUSH int 229; # int : list string : nat : nat : int : string : int : string : string : list string : nat : string : list string : nat : @parameter : @storage : lambda (pair string string) bool : lambda (pair string string) (list string) : lambda int string : lambda (pair string string) bool : lambda (pair nat nat) nat : lambda (list nat) nat : lambda string int
+                PUSH int 236; # int : list string : nat : nat : int : string : int : string : string : list string : nat : string : list string : nat : @parameter : @storage : lambda (pair string string) bool : lambda (pair string string) (list string) : lambda int string : lambda (pair string string) bool : lambda (pair nat nat) nat : lambda (list nat) nat : lambda string int
                 FAILWITH;   # FAILED
               }
               {}; # @some : list string : nat : nat : int : string : int : string : string : list string : nat : string : list string : nat : @parameter : @storage : lambda (pair string string) bool : lambda (pair string string) (list string) : lambda int string : lambda (pair string string) bool : lambda (pair nat nat) nat : lambda (list nat) nat : lambda string int
@@ -1213,7 +1213,7 @@ code
         ISNAT;      # option nat : string : list string : nat : int : string : int : string : string : list string : nat : string : list string : nat : @parameter : @storage : lambda (pair string string) bool : lambda (pair string string) (list string) : lambda int string : lambda (pair string string) bool : lambda (pair nat nat) nat : lambda (list nat) nat : lambda string int
         IF_NONE
           {
-            PUSH int 232; # int : string : list string : nat : int : string : int : string : string : list string : nat : string : list string : nat : @parameter : @storage : lambda (pair string string) bool : lambda (pair string string) (list string) : lambda int string : lambda (pair string string) bool : lambda (pair nat nat) nat : lambda (list nat) nat : lambda string int
+            PUSH int 239; # int : string : list string : nat : int : string : int : string : string : list string : nat : string : list string : nat : @parameter : @storage : lambda (pair string string) bool : lambda (pair string string) (list string) : lambda int string : lambda (pair string string) bool : lambda (pair nat nat) nat : lambda (list nat) nat : lambda string int
             FAILWITH;   # FAILED
           }
           {}; # @some : string : list string : nat : int : string : int : string : string : list string : nat : string : list string : nat : @parameter : @storage : lambda (pair string string) bool : lambda (pair string string) (list string) : lambda int string : lambda (pair string string) bool : lambda (pair nat nat) nat : lambda (list nat) nat : lambda string int
@@ -1221,7 +1221,7 @@ code
         SLICE;      # option string : list string : nat : int : string : int : string : string : list string : nat : string : list string : nat : @parameter : @storage : lambda (pair string string) bool : lambda (pair string string) (list string) : lambda int string : lambda (pair string string) bool : lambda (pair nat nat) nat : lambda (list nat) nat : lambda string int
         IF_NONE
           {
-            PUSH int 232; # int : list string : nat : int : string : int : string : string : list string : nat : string : list string : nat : @parameter : @storage : lambda (pair string string) bool : lambda (pair string string) (list string) : lambda int string : lambda (pair string string) bool : lambda (pair nat nat) nat : lambda (list nat) nat : lambda string int
+            PUSH int 239; # int : list string : nat : int : string : int : string : string : list string : nat : string : list string : nat : @parameter : @storage : lambda (pair string string) bool : lambda (pair string string) (list string) : lambda int string : lambda (pair string string) bool : lambda (pair nat nat) nat : lambda (list nat) nat : lambda string int
             FAILWITH;   # FAILED
           }
           {}; # @some : list string : nat : int : string : int : string : string : list string : nat : string : list string : nat : @parameter : @storage : lambda (pair string string) bool : lambda (pair string string) (list string) : lambda int string : lambda (pair string string) bool : lambda (pair nat nat) nat : lambda (list nat) nat : lambda string int
@@ -1271,7 +1271,7 @@ code
         SLICE;      # option string : string : nat : nat : list string : nat : list string : nat : int : string : int : string : string : list string : nat : string : list string : nat : @parameter : @storage : lambda (pair string string) bool : lambda (pair string string) (list string) : lambda int string : lambda (pair string string) bool : lambda (pair nat nat) nat : lambda (list nat) nat : lambda string int
         IF_NONE
           {
-            PUSH int 228; # int : string : nat : nat : list string : nat : list string : nat : int : string : int : string : string : list string : nat : string : list string : nat : @parameter : @storage : lambda (pair string string) bool : lambda (pair string string) (list string) : lambda int string : lambda (pair string string) bool : lambda (pair nat nat) nat : lambda (list nat) nat : lambda string int
+            PUSH int 235; # int : string : nat : nat : list string : nat : list string : nat : int : string : int : string : string : list string : nat : string : list string : nat : @parameter : @storage : lambda (pair string string) bool : lambda (pair string string) (list string) : lambda int string : lambda (pair string string) bool : lambda (pair nat nat) nat : lambda (list nat) nat : lambda string int
             FAILWITH;   # FAILED
           }
           {}; # @some : string : nat : nat : list string : nat : list string : nat : int : string : int : string : string : list string : nat : string : list string : nat : @parameter : @storage : lambda (pair string string) bool : lambda (pair string string) (list string) : lambda int string : lambda (pair string string) bool : lambda (pair nat nat) nat : lambda (list nat) nat : lambda string int
@@ -1288,7 +1288,7 @@ code
             ISNAT;      # option nat : string : list string : nat : nat : nat : list string : nat : int : string : int : string : string : list string : nat : string : list string : nat : @parameter : @storage : lambda (pair string string) bool : lambda (pair string string) (list string) : lambda int string : lambda (pair string string) bool : lambda (pair nat nat) nat : lambda (list nat) nat : lambda string int
             IF_NONE
               {
-                PUSH int 229; # int : string : list string : nat : nat : nat : list string : nat : int : string : int : string : string : list string : nat : string : list string : nat : @parameter : @storage : lambda (pair string string) bool : lambda (pair string string) (list string) : lambda int string : lambda (pair string string) bool : lambda (pair nat nat) nat : lambda (list nat) nat : lambda string int
+                PUSH int 236; # int : string : list string : nat : nat : nat : list string : nat : int : string : int : string : string : list string : nat : string : list string : nat : @parameter : @storage : lambda (pair string string) bool : lambda (pair string string) (list string) : lambda int string : lambda (pair string string) bool : lambda (pair nat nat) nat : lambda (list nat) nat : lambda string int
                 FAILWITH;   # FAILED
               }
               {}; # @some : string : list string : nat : nat : nat : list string : nat : int : string : int : string : string : list string : nat : string : list string : nat : @parameter : @storage : lambda (pair string string) bool : lambda (pair string string) (list string) : lambda int string : lambda (pair string string) bool : lambda (pair nat nat) nat : lambda (list nat) nat : lambda string int
@@ -1296,7 +1296,7 @@ code
             SLICE;      # option string : list string : nat : nat : list string : nat : int : string : int : string : string : list string : nat : string : list string : nat : @parameter : @storage : lambda (pair string string) bool : lambda (pair string string) (list string) : lambda int string : lambda (pair string string) bool : lambda (pair nat nat) nat : lambda (list nat) nat : lambda string int
             IF_NONE
               {
-                PUSH int 229; # int : list string : nat : nat : list string : nat : int : string : int : string : string : list string : nat : string : list string : nat : @parameter : @storage : lambda (pair string string) bool : lambda (pair string string) (list string) : lambda int string : lambda (pair string string) bool : lambda (pair nat nat) nat : lambda (list nat) nat : lambda string int
+                PUSH int 236; # int : list string : nat : nat : list string : nat : int : string : int : string : string : list string : nat : string : list string : nat : @parameter : @storage : lambda (pair string string) bool : lambda (pair string string) (list string) : lambda int string : lambda (pair string string) bool : lambda (pair nat nat) nat : lambda (list nat) nat : lambda string int
                 FAILWITH;   # FAILED
               }
               {}; # @some : list string : nat : nat : list string : nat : int : string : int : string : string : list string : nat : string : list string : nat : @parameter : @storage : lambda (pair string string) bool : lambda (pair string string) (list string) : lambda int string : lambda (pair string string) bool : lambda (pair nat nat) nat : lambda (list nat) nat : lambda string int
@@ -1335,7 +1335,7 @@ code
         ISNAT;      # option nat : string : list string : nat : list string : nat : int : string : int : string : string : list string : nat : string : list string : nat : @parameter : @storage : lambda (pair string string) bool : lambda (pair string string) (list string) : lambda int string : lambda (pair string string) bool : lambda (pair nat nat) nat : lambda (list nat) nat : lambda string int
         IF_NONE
           {
-            PUSH int 232; # int : string : list string : nat : list string : nat : int : string : int : string : string : list string : nat : string : list string : nat : @parameter : @storage : lambda (pair string string) bool : lambda (pair string string) (list string) : lambda int string : lambda (pair string string) bool : lambda (pair nat nat) nat : lambda (list nat) nat : lambda string int
+            PUSH int 239; # int : string : list string : nat : list string : nat : int : string : int : string : string : list string : nat : string : list string : nat : @parameter : @storage : lambda (pair string string) bool : lambda (pair string string) (list string) : lambda int string : lambda (pair string string) bool : lambda (pair nat nat) nat : lambda (list nat) nat : lambda string int
             FAILWITH;   # FAILED
           }
           {}; # @some : string : list string : nat : list string : nat : int : string : int : string : string : list string : nat : string : list string : nat : @parameter : @storage : lambda (pair string string) bool : lambda (pair string string) (list string) : lambda int string : lambda (pair string string) bool : lambda (pair nat nat) nat : lambda (list nat) nat : lambda string int
@@ -1343,7 +1343,7 @@ code
         SLICE;      # option string : list string : nat : list string : nat : int : string : int : string : string : list string : nat : string : list string : nat : @parameter : @storage : lambda (pair string string) bool : lambda (pair string string) (list string) : lambda int string : lambda (pair string string) bool : lambda (pair nat nat) nat : lambda (list nat) nat : lambda string int
         IF_NONE
           {
-            PUSH int 232; # int : list string : nat : list string : nat : int : string : int : string : string : list string : nat : string : list string : nat : @parameter : @storage : lambda (pair string string) bool : lambda (pair string string) (list string) : lambda int string : lambda (pair string string) bool : lambda (pair nat nat) nat : lambda (list nat) nat : lambda string int
+            PUSH int 239; # int : list string : nat : list string : nat : int : string : int : string : string : list string : nat : string : list string : nat : @parameter : @storage : lambda (pair string string) bool : lambda (pair string string) (list string) : lambda int string : lambda (pair string string) bool : lambda (pair nat nat) nat : lambda (list nat) nat : lambda string int
             FAILWITH;   # FAILED
           }
           {}; # @some : list string : nat : list string : nat : int : string : int : string : string : list string : nat : string : list string : nat : @parameter : @storage : lambda (pair string string) bool : lambda (pair string string) (list string) : lambda int string : lambda (pair string string) bool : lambda (pair nat nat) nat : lambda (list nat) nat : lambda string int
@@ -1991,7 +1991,7 @@ code
     ISNAT;      # option nat : bytes : bytes : @storage
     IF_NONE
       {
-        PUSH int 123; # int : bytes : bytes : @storage
+        PUSH int 130; # int : bytes : bytes : @storage
         FAILWITH;   # FAILED
       }
       {}; # @some : bytes : bytes : @storage
@@ -2023,7 +2023,7 @@ code
     ISNAT;      # option nat : bytes : bytes : @storage
     IF_NONE
       {
-        PUSH int 118; # int : bytes : bytes : @storage
+        PUSH int 122; # int : bytes : bytes : @storage
         FAILWITH;   # FAILED
       }
       {}; # @some : bytes : bytes : @storage
@@ -2056,7 +2056,7 @@ code
     ISNAT;      # option nat : bytes : @storage
     IF_NONE
       {
-        PUSH int 123; # int : bytes : @storage
+        PUSH int 130; # int : bytes : @storage
         FAILWITH;   # FAILED
       }
       {}; # @some : bytes : @storage
