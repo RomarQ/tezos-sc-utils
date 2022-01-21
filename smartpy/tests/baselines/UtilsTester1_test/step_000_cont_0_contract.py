@@ -131,8 +131,10 @@ class Contract(sp.Contract):
           utils_46_i.value += utils_47_x.value
     sp.verify(utils_43_result.value == 2)
     sp.verify(self.math_median(sp.list([1, 2, 2, 5])) == 2)
+    sp.verify(True, '(number) must be lower than 64')
     sp.verify(sp.slice(sp.pack(54), 2, sp.as_nat(sp.len(sp.pack(54)) - 2)).open_some(message = 'Could not encode nat to bytes.') == sp.bytes('0x36'))
     sp.verify(sp.slice(sp.pack('TEST_STRING_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'), 6, sp.as_nat(sp.len(sp.pack('TEST_STRING_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX')) - 6)).open_some(message = 'Could not encode string to bytes.') == sp.bytes('0x544553545f535452494e475f585858585858585858585858585858585858585858585858585858585858585858585858585858585858'))
+    sp.verify(sp.len(sp.bytes('0x544553545f535452494e475f585858585858585858585858585858585858585858585858585858585858585858585858585858585858')) < 64, '(number) must be lower than 64')
     lengthBytes = sp.local("lengthBytes", sp.slice(sp.pack(sp.len(sp.bytes('0x544553545f535452494e475f585858585858585858585858585858585858585858585858585858585858585858585858585858585858'))), 2, sp.as_nat(sp.len(sp.pack(sp.len(sp.bytes('0x544553545f535452494e475f585858585858585858585858585858585858585858585858585858585858585858585858585858585858')))) - 2)).open_some(message = 'Could not encode nat to bytes.'))
     sp.while sp.len(lengthBytes.value) < 4:
       lengthBytes.value = sp.bytes('0x00') + lengthBytes.value

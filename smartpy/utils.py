@@ -123,6 +123,7 @@ class Bytes:
 
     @staticmethod
     def of_nat(number):
+        sp.verify(number < 64, "(number) must be lower than 64")
         b = sp.pack(number)
         # Remove (packed prefix), (Data identifier)
         # - Packed prefix: 0x05 (1 byte)
