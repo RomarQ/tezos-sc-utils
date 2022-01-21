@@ -60,6 +60,10 @@ class UtilsTester1(sp.Contract):
         sp.verify(utils.Math.median([1, 2, 2, 3]) == 2)
         sp.verify(self.math_median([1, 2, 2, 5]) == 2)
 
+        sp.verify(utils.Bytes.of_nat(54) == sp.bytes("0x36"))
+        sp.verify(utils.Bytes.of_string("TEST_STRING_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX") == sp.bytes("0x544553545f535452494e475f585858585858585858585858585858585858585858585858585858585858585858585858585858585858"))
+        sp.verify(utils.String.of_bytes(sp.bytes("0x544553545f535452494e475f585858585858585858585858585858585858585858585858585858585858585858585858585858585858")) == "TEST_STRING_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
+
 class UtilsTester2(sp.Contract):
 
     @sp.private_lambda()
@@ -115,6 +119,10 @@ class UtilsTester2(sp.Contract):
         sp.verify(Utils.Math.median([1, 2, 3, 4, 5]) == 3)
         sp.verify(Utils.Math.median([1, 2, 2, 3]) == 2)
         sp.verify(self.math_median([1, 2, 2, 5]) == 2)
+
+        sp.verify(Utils.Bytes.of_nat(54) == sp.bytes("0x36"))
+        sp.verify(Utils.Bytes.of_string("TEST_STRING_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX") == sp.bytes("0x544553545f535452494e475f585858585858585858585858585858585858585858585858585858585858585858585858585858585858"))
+        sp.verify(Utils.String.of_bytes(sp.bytes("0x544553545f535452494e475f585858585858585858585858585858585858585858585858585858585858585858585858585858585858")) == "TEST_STRING_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
 
 @sp.add_test(name = "UtilsTester1_test")
 def test1():

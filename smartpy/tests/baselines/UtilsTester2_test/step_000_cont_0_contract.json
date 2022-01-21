@@ -36,7 +36,7 @@
                     { "prim": "SIZE" },
                     { "prim": "SUB" },
                     { "prim": "ISNAT" },
-                    { "prim": "IF_NONE", "args": [ [ { "prim": "PUSH", "args": [ { "prim": "int" }, { "int": "254" } ] }, { "prim": "FAILWITH" } ], [] ] },
+                    { "prim": "IF_NONE", "args": [ [ { "prim": "PUSH", "args": [ { "prim": "int" }, { "int": "280" } ] }, { "prim": "FAILWITH" } ], [] ] },
                     { "prim": "PUSH", "args": [ { "prim": "nat" }, { "int": "1" } ] },
                     { "prim": "SLICE" },
                     { "prim": "IF_NONE", "args": [ [ { "prim": "PUSH", "args": [ { "prim": "string" }, { "string": "" } ] }, { "prim": "FAILWITH" } ], [] ] }
@@ -80,9 +80,9 @@
                     { "prim": "PUSH", "args": [ { "prim": "nat" }, { "int": "1" } ] },
                     { "prim": "DUP", "args": [ { "int": "4" } ] },
                     { "prim": "SLICE" },
-                    { "prim": "IF_NONE", "args": [ [ { "prim": "PUSH", "args": [ { "prim": "int" }, { "int": "258" } ] }, { "prim": "FAILWITH" } ], [] ] },
+                    { "prim": "IF_NONE", "args": [ [ { "prim": "PUSH", "args": [ { "prim": "int" }, { "int": "284" } ] }, { "prim": "FAILWITH" } ], [] ] },
                     { "prim": "GET" },
-                    { "prim": "IF_NONE", "args": [ [ { "prim": "PUSH", "args": [ { "prim": "int" }, { "int": "258" } ] }, { "prim": "FAILWITH" } ], [] ] },
+                    { "prim": "IF_NONE", "args": [ [ { "prim": "PUSH", "args": [ { "prim": "int" }, { "int": "284" } ] }, { "prim": "FAILWITH" } ], [] ] },
                     { "prim": "DIG", "args": [ { "int": "3" } ] },
                     { "prim": "PUSH", "args": [ { "prim": "int" }, { "int": "10" } ] },
                     { "prim": "MUL" },
@@ -441,14 +441,14 @@
                     { "prim": "PUSH", "args": [ { "prim": "nat" }, { "int": "10" } ] },
                     { "prim": "DUP", "args": [ { "int": "4" } ] },
                     { "prim": "EDIV" },
-                    { "prim": "IF_NONE", "args": [ [ { "prim": "PUSH", "args": [ { "prim": "int" }, { "int": "236" } ] }, { "prim": "FAILWITH" } ], [ { "prim": "CDR" } ] ] },
+                    { "prim": "IF_NONE", "args": [ [ { "prim": "PUSH", "args": [ { "prim": "int" }, { "int": "246" } ] }, { "prim": "FAILWITH" } ], [ { "prim": "CDR" } ] ] },
                     { "prim": "GET" },
-                    { "prim": "IF_NONE", "args": [ [ { "prim": "PUSH", "args": [ { "prim": "int" }, { "int": "236" } ] }, { "prim": "FAILWITH" } ], [] ] },
+                    { "prim": "IF_NONE", "args": [ [ { "prim": "PUSH", "args": [ { "prim": "int" }, { "int": "246" } ] }, { "prim": "FAILWITH" } ], [] ] },
                     { "prim": "CONS" },
                     { "prim": "PUSH", "args": [ { "prim": "nat" }, { "int": "10" } ] },
                     { "prim": "DIG", "args": [ { "int": "2" } ] },
                     { "prim": "EDIV" },
-                    { "prim": "IF_NONE", "args": [ [ { "prim": "PUSH", "args": [ { "prim": "int" }, { "int": "237" } ] }, { "prim": "FAILWITH" } ], [ { "prim": "CAR" } ] ] },
+                    { "prim": "IF_NONE", "args": [ [ { "prim": "PUSH", "args": [ { "prim": "int" }, { "int": "247" } ] }, { "prim": "FAILWITH" } ], [ { "prim": "CAR" } ] ] },
                     { "prim": "SWAP" },
                     { "prim": "PUSH", "args": [ { "prim": "nat" }, { "int": "0" } ] },
                     { "prim": "DUP", "args": [ { "int": "3" } ] },
@@ -499,7 +499,7 @@
                     { "prim": "PUSH", "args": [ { "prim": "nat" }, { "int": "1" } ] },
                     { "prim": "DUP", "args": [ { "int": "4" } ] },
                     { "prim": "SLICE" },
-                    { "prim": "IF_NONE", "args": [ [ { "prim": "PUSH", "args": [ { "prim": "int" }, { "int": "218" } ] }, { "prim": "FAILWITH" } ], [] ] },
+                    { "prim": "IF_NONE", "args": [ [ { "prim": "PUSH", "args": [ { "prim": "int" }, { "int": "228" } ] }, { "prim": "FAILWITH" } ], [] ] },
                     { "prim": "COMPARE" },
                     { "prim": "EQ" },
                     {
@@ -513,10 +513,10 @@
                           { "prim": "DUP", "args": [ { "int": "4" } ] },
                           { "prim": "SUB" },
                           { "prim": "ISNAT" },
-                          { "prim": "IF_NONE", "args": [ [ { "prim": "PUSH", "args": [ { "prim": "int" }, { "int": "219" } ] }, { "prim": "FAILWITH" } ], [] ] },
+                          { "prim": "IF_NONE", "args": [ [ { "prim": "PUSH", "args": [ { "prim": "int" }, { "int": "229" } ] }, { "prim": "FAILWITH" } ], [] ] },
                           { "prim": "DIG", "args": [ { "int": "5" } ] },
                           { "prim": "SLICE" },
-                          { "prim": "IF_NONE", "args": [ [ { "prim": "PUSH", "args": [ { "prim": "int" }, { "int": "219" } ] }, { "prim": "FAILWITH" } ], [] ] },
+                          { "prim": "IF_NONE", "args": [ [ { "prim": "PUSH", "args": [ { "prim": "int" }, { "int": "229" } ] }, { "prim": "FAILWITH" } ], [] ] },
                           { "prim": "CONS" },
                           { "prim": "DUG", "args": [ { "int": "2" } ] },
                           { "prim": "DUP" },
@@ -555,10 +555,10 @@
                     { "prim": "SIZE" },
                     { "prim": "SUB" },
                     { "prim": "ISNAT" },
-                    { "prim": "IF_NONE", "args": [ [ { "prim": "PUSH", "args": [ { "prim": "int" }, { "int": "222" } ] }, { "prim": "FAILWITH" } ], [] ] },
+                    { "prim": "IF_NONE", "args": [ [ { "prim": "PUSH", "args": [ { "prim": "int" }, { "int": "232" } ] }, { "prim": "FAILWITH" } ], [] ] },
                     { "prim": "DIG", "args": [ { "int": "3" } ] },
                     { "prim": "SLICE" },
-                    { "prim": "IF_NONE", "args": [ [ { "prim": "PUSH", "args": [ { "prim": "int" }, { "int": "222" } ] }, { "prim": "FAILWITH" } ], [] ] },
+                    { "prim": "IF_NONE", "args": [ [ { "prim": "PUSH", "args": [ { "prim": "int" }, { "int": "232" } ] }, { "prim": "FAILWITH" } ], [] ] },
                     { "prim": "CONS" }
                   ],
                   [ { "prim": "SWAP" }, { "prim": "DROP" }, { "prim": "SWAP" }, { "prim": "DROP" } ]
@@ -629,14 +629,14 @@
               { "prim": "PUSH", "args": [ { "prim": "nat" }, { "int": "10" } ] },
               { "prim": "DUP", "args": [ { "int": "4" } ] },
               { "prim": "EDIV" },
-              { "prim": "IF_NONE", "args": [ [ { "prim": "PUSH", "args": [ { "prim": "int" }, { "int": "236" } ] }, { "prim": "FAILWITH" } ], [ { "prim": "CDR" } ] ] },
+              { "prim": "IF_NONE", "args": [ [ { "prim": "PUSH", "args": [ { "prim": "int" }, { "int": "246" } ] }, { "prim": "FAILWITH" } ], [ { "prim": "CDR" } ] ] },
               { "prim": "GET" },
-              { "prim": "IF_NONE", "args": [ [ { "prim": "PUSH", "args": [ { "prim": "int" }, { "int": "236" } ] }, { "prim": "FAILWITH" } ], [] ] },
+              { "prim": "IF_NONE", "args": [ [ { "prim": "PUSH", "args": [ { "prim": "int" }, { "int": "246" } ] }, { "prim": "FAILWITH" } ], [] ] },
               { "prim": "CONS" },
               { "prim": "PUSH", "args": [ { "prim": "nat" }, { "int": "10" } ] },
               { "prim": "DIG", "args": [ { "int": "2" } ] },
               { "prim": "EDIV" },
-              { "prim": "IF_NONE", "args": [ [ { "prim": "PUSH", "args": [ { "prim": "int" }, { "int": "237" } ] }, { "prim": "FAILWITH" } ], [ { "prim": "CAR" } ] ] },
+              { "prim": "IF_NONE", "args": [ [ { "prim": "PUSH", "args": [ { "prim": "int" }, { "int": "247" } ] }, { "prim": "FAILWITH" } ], [ { "prim": "CAR" } ] ] },
               { "prim": "SWAP" },
               { "prim": "PUSH", "args": [ { "prim": "nat" }, { "int": "0" } ] },
               { "prim": "DUP", "args": [ { "int": "3" } ] },
@@ -690,14 +690,14 @@
               { "prim": "PUSH", "args": [ { "prim": "nat" }, { "int": "10" } ] },
               { "prim": "DUP", "args": [ { "int": "4" } ] },
               { "prim": "EDIV" },
-              { "prim": "IF_NONE", "args": [ [ { "prim": "PUSH", "args": [ { "prim": "int" }, { "int": "236" } ] }, { "prim": "FAILWITH" } ], [ { "prim": "CDR" } ] ] },
+              { "prim": "IF_NONE", "args": [ [ { "prim": "PUSH", "args": [ { "prim": "int" }, { "int": "246" } ] }, { "prim": "FAILWITH" } ], [ { "prim": "CDR" } ] ] },
               { "prim": "GET" },
-              { "prim": "IF_NONE", "args": [ [ { "prim": "PUSH", "args": [ { "prim": "int" }, { "int": "236" } ] }, { "prim": "FAILWITH" } ], [] ] },
+              { "prim": "IF_NONE", "args": [ [ { "prim": "PUSH", "args": [ { "prim": "int" }, { "int": "246" } ] }, { "prim": "FAILWITH" } ], [] ] },
               { "prim": "CONS" },
               { "prim": "PUSH", "args": [ { "prim": "nat" }, { "int": "10" } ] },
               { "prim": "DIG", "args": [ { "int": "2" } ] },
               { "prim": "EDIV" },
-              { "prim": "IF_NONE", "args": [ [ { "prim": "PUSH", "args": [ { "prim": "int" }, { "int": "237" } ] }, { "prim": "FAILWITH" } ], [ { "prim": "CAR" } ] ] },
+              { "prim": "IF_NONE", "args": [ [ { "prim": "PUSH", "args": [ { "prim": "int" }, { "int": "247" } ] }, { "prim": "FAILWITH" } ], [ { "prim": "CAR" } ] ] },
               { "prim": "SWAP" },
               { "prim": "PUSH", "args": [ { "prim": "nat" }, { "int": "0" } ] },
               { "prim": "DUP", "args": [ { "int": "3" } ] },
@@ -747,7 +747,7 @@
               { "prim": "SIZE" },
               { "prim": "SUB" },
               { "prim": "ISNAT" },
-              { "prim": "IF_NONE", "args": [ [ { "prim": "PUSH", "args": [ { "prim": "int" }, { "int": "254" } ] }, { "prim": "FAILWITH" } ], [] ] },
+              { "prim": "IF_NONE", "args": [ [ { "prim": "PUSH", "args": [ { "prim": "int" }, { "int": "280" } ] }, { "prim": "FAILWITH" } ], [] ] },
               { "prim": "PUSH", "args": [ { "prim": "nat" }, { "int": "1" } ] },
               { "prim": "SLICE" },
               { "prim": "IF_NONE", "args": [ [ { "prim": "PUSH", "args": [ { "prim": "string" }, { "string": "" } ] }, { "prim": "FAILWITH" } ], [] ] }
@@ -791,9 +791,9 @@
               { "prim": "PUSH", "args": [ { "prim": "nat" }, { "int": "1" } ] },
               { "prim": "DUP", "args": [ { "int": "4" } ] },
               { "prim": "SLICE" },
-              { "prim": "IF_NONE", "args": [ [ { "prim": "PUSH", "args": [ { "prim": "int" }, { "int": "258" } ] }, { "prim": "FAILWITH" } ], [] ] },
+              { "prim": "IF_NONE", "args": [ [ { "prim": "PUSH", "args": [ { "prim": "int" }, { "int": "284" } ] }, { "prim": "FAILWITH" } ], [] ] },
               { "prim": "GET" },
-              { "prim": "IF_NONE", "args": [ [ { "prim": "PUSH", "args": [ { "prim": "int" }, { "int": "258" } ] }, { "prim": "FAILWITH" } ], [] ] },
+              { "prim": "IF_NONE", "args": [ [ { "prim": "PUSH", "args": [ { "prim": "int" }, { "int": "284" } ] }, { "prim": "FAILWITH" } ], [] ] },
               { "prim": "DIG", "args": [ { "int": "3" } ] },
               { "prim": "PUSH", "args": [ { "prim": "int" }, { "int": "10" } ] },
               { "prim": "MUL" },
@@ -851,7 +851,7 @@
               { "prim": "SIZE" },
               { "prim": "SUB" },
               { "prim": "ISNAT" },
-              { "prim": "IF_NONE", "args": [ [ { "prim": "PUSH", "args": [ { "prim": "int" }, { "int": "254" } ] }, { "prim": "FAILWITH" } ], [] ] },
+              { "prim": "IF_NONE", "args": [ [ { "prim": "PUSH", "args": [ { "prim": "int" }, { "int": "280" } ] }, { "prim": "FAILWITH" } ], [] ] },
               { "prim": "PUSH", "args": [ { "prim": "nat" }, { "int": "1" } ] },
               { "prim": "SLICE" },
               { "prim": "IF_NONE", "args": [ [ { "prim": "PUSH", "args": [ { "prim": "string" }, { "string": "" } ] }, { "prim": "FAILWITH" } ], [] ] }
@@ -895,9 +895,9 @@
               { "prim": "PUSH", "args": [ { "prim": "nat" }, { "int": "1" } ] },
               { "prim": "DUP", "args": [ { "int": "4" } ] },
               { "prim": "SLICE" },
-              { "prim": "IF_NONE", "args": [ [ { "prim": "PUSH", "args": [ { "prim": "int" }, { "int": "258" } ] }, { "prim": "FAILWITH" } ], [] ] },
+              { "prim": "IF_NONE", "args": [ [ { "prim": "PUSH", "args": [ { "prim": "int" }, { "int": "284" } ] }, { "prim": "FAILWITH" } ], [] ] },
               { "prim": "GET" },
-              { "prim": "IF_NONE", "args": [ [ { "prim": "PUSH", "args": [ { "prim": "int" }, { "int": "258" } ] }, { "prim": "FAILWITH" } ], [] ] },
+              { "prim": "IF_NONE", "args": [ [ { "prim": "PUSH", "args": [ { "prim": "int" }, { "int": "284" } ] }, { "prim": "FAILWITH" } ], [] ] },
               { "prim": "DIG", "args": [ { "int": "3" } ] },
               { "prim": "PUSH", "args": [ { "prim": "int" }, { "int": "10" } ] },
               { "prim": "MUL" },
@@ -959,7 +959,7 @@
               { "prim": "PUSH", "args": [ { "prim": "nat" }, { "int": "1" } ] },
               { "prim": "DUP", "args": [ { "int": "4" } ] },
               { "prim": "SLICE" },
-              { "prim": "IF_NONE", "args": [ [ { "prim": "PUSH", "args": [ { "prim": "int" }, { "int": "218" } ] }, { "prim": "FAILWITH" } ], [] ] },
+              { "prim": "IF_NONE", "args": [ [ { "prim": "PUSH", "args": [ { "prim": "int" }, { "int": "228" } ] }, { "prim": "FAILWITH" } ], [] ] },
               { "prim": "COMPARE" },
               { "prim": "EQ" },
               {
@@ -972,10 +972,10 @@
                     { "prim": "DUP", "args": [ { "int": "4" } ] },
                     { "prim": "SUB" },
                     { "prim": "ISNAT" },
-                    { "prim": "IF_NONE", "args": [ [ { "prim": "PUSH", "args": [ { "prim": "int" }, { "int": "219" } ] }, { "prim": "FAILWITH" } ], [] ] },
+                    { "prim": "IF_NONE", "args": [ [ { "prim": "PUSH", "args": [ { "prim": "int" }, { "int": "229" } ] }, { "prim": "FAILWITH" } ], [] ] },
                     { "prim": "DIG", "args": [ { "int": "5" } ] },
                     { "prim": "SLICE" },
-                    { "prim": "IF_NONE", "args": [ [ { "prim": "PUSH", "args": [ { "prim": "int" }, { "int": "219" } ] }, { "prim": "FAILWITH" } ], [] ] },
+                    { "prim": "IF_NONE", "args": [ [ { "prim": "PUSH", "args": [ { "prim": "int" }, { "int": "229" } ] }, { "prim": "FAILWITH" } ], [] ] },
                     { "prim": "CONS" },
                     { "prim": "DUG", "args": [ { "int": "2" } ] },
                     { "prim": "DUP" },
@@ -1011,10 +1011,10 @@
               { "prim": "SIZE" },
               { "prim": "SUB" },
               { "prim": "ISNAT" },
-              { "prim": "IF_NONE", "args": [ [ { "prim": "PUSH", "args": [ { "prim": "int" }, { "int": "222" } ] }, { "prim": "FAILWITH" } ], [] ] },
+              { "prim": "IF_NONE", "args": [ [ { "prim": "PUSH", "args": [ { "prim": "int" }, { "int": "232" } ] }, { "prim": "FAILWITH" } ], [] ] },
               { "prim": "DUP", "args": [ { "int": "4" } ] },
               { "prim": "SLICE" },
-              { "prim": "IF_NONE", "args": [ [ { "prim": "PUSH", "args": [ { "prim": "int" }, { "int": "222" } ] }, { "prim": "FAILWITH" } ], [] ] },
+              { "prim": "IF_NONE", "args": [ [ { "prim": "PUSH", "args": [ { "prim": "int" }, { "int": "232" } ] }, { "prim": "FAILWITH" } ], [] ] },
               { "prim": "CONS" }
             ],
             []
@@ -1068,7 +1068,7 @@
               { "prim": "PUSH", "args": [ { "prim": "nat" }, { "int": "1" } ] },
               { "prim": "DUP", "args": [ { "int": "4" } ] },
               { "prim": "SLICE" },
-              { "prim": "IF_NONE", "args": [ [ { "prim": "PUSH", "args": [ { "prim": "int" }, { "int": "218" } ] }, { "prim": "FAILWITH" } ], [] ] },
+              { "prim": "IF_NONE", "args": [ [ { "prim": "PUSH", "args": [ { "prim": "int" }, { "int": "228" } ] }, { "prim": "FAILWITH" } ], [] ] },
               { "prim": "COMPARE" },
               { "prim": "EQ" },
               {
@@ -1081,10 +1081,10 @@
                     { "prim": "DUP", "args": [ { "int": "4" } ] },
                     { "prim": "SUB" },
                     { "prim": "ISNAT" },
-                    { "prim": "IF_NONE", "args": [ [ { "prim": "PUSH", "args": [ { "prim": "int" }, { "int": "219" } ] }, { "prim": "FAILWITH" } ], [] ] },
+                    { "prim": "IF_NONE", "args": [ [ { "prim": "PUSH", "args": [ { "prim": "int" }, { "int": "229" } ] }, { "prim": "FAILWITH" } ], [] ] },
                     { "prim": "DIG", "args": [ { "int": "5" } ] },
                     { "prim": "SLICE" },
-                    { "prim": "IF_NONE", "args": [ [ { "prim": "PUSH", "args": [ { "prim": "int" }, { "int": "219" } ] }, { "prim": "FAILWITH" } ], [] ] },
+                    { "prim": "IF_NONE", "args": [ [ { "prim": "PUSH", "args": [ { "prim": "int" }, { "int": "229" } ] }, { "prim": "FAILWITH" } ], [] ] },
                     { "prim": "CONS" },
                     { "prim": "DUG", "args": [ { "int": "2" } ] },
                     { "prim": "DUP" },
@@ -1120,10 +1120,10 @@
               { "prim": "SIZE" },
               { "prim": "SUB" },
               { "prim": "ISNAT" },
-              { "prim": "IF_NONE", "args": [ [ { "prim": "PUSH", "args": [ { "prim": "int" }, { "int": "222" } ] }, { "prim": "FAILWITH" } ], [] ] },
+              { "prim": "IF_NONE", "args": [ [ { "prim": "PUSH", "args": [ { "prim": "int" }, { "int": "232" } ] }, { "prim": "FAILWITH" } ], [] ] },
               { "prim": "DUP", "args": [ { "int": "4" } ] },
               { "prim": "SLICE" },
-              { "prim": "IF_NONE", "args": [ [ { "prim": "PUSH", "args": [ { "prim": "int" }, { "int": "222" } ] }, { "prim": "FAILWITH" } ], [] ] },
+              { "prim": "IF_NONE", "args": [ [ { "prim": "PUSH", "args": [ { "prim": "int" }, { "int": "232" } ] }, { "prim": "FAILWITH" } ], [] ] },
               { "prim": "CONS" }
             ],
             []
@@ -1778,6 +1778,154 @@
           "args": [
             [],
             [ { "prim": "PUSH", "args": [ { "prim": "string" }, { "string": "WrongCondition: self.math_median(sp.list([1, 2, 2, 5])) == 2" } ] }, { "prim": "FAILWITH" } ]
+          ]
+        },
+        { "prim": "PUSH", "args": [ { "prim": "bytes" }, { "bytes": "36" } ] },
+        { "prim": "PUSH", "args": [ { "prim": "int" }, { "int": "54" } ] },
+        { "prim": "PACK" },
+        { "prim": "PUSH", "args": [ { "prim": "nat" }, { "int": "2" } ] },
+        { "prim": "PUSH", "args": [ { "prim": "int" }, { "int": "54" } ] },
+        { "prim": "PACK" },
+        { "prim": "SIZE" },
+        { "prim": "SUB" },
+        { "prim": "ISNAT" },
+        { "prim": "IF_NONE", "args": [ [ { "prim": "PUSH", "args": [ { "prim": "int" }, { "int": "123" } ] }, { "prim": "FAILWITH" } ], [] ] },
+        { "prim": "PUSH", "args": [ { "prim": "nat" }, { "int": "2" } ] },
+        { "prim": "SLICE" },
+        { "prim": "IF_NONE", "args": [ [ { "prim": "PUSH", "args": [ { "prim": "string" }, { "string": "Could not encode nat to bytes." } ] }, { "prim": "FAILWITH" } ], [] ] },
+        { "prim": "COMPARE" },
+        { "prim": "EQ" },
+        {
+          "prim": "IF",
+          "args": [
+            [],
+            [
+              {
+                "prim": "PUSH",
+                "args": [
+                  { "prim": "string" },
+                  {
+                    "string":
+                      "WrongCondition: sp.slice(sp.pack(54), 2, sp.as_nat(sp.len(sp.pack(54)) - 2)).open_some(message = 'Could not encode nat to bytes.') == sp.bytes('0x36')"
+                  }
+                ]
+              },
+              { "prim": "FAILWITH" }
+            ]
+          ]
+        },
+        {
+          "prim": "PUSH",
+          "args": [ { "prim": "bytes" }, { "bytes": "544553545f535452494e475f585858585858585858585858585858585858585858585858585858585858585858585858585858585858" } ]
+        },
+        { "prim": "PUSH", "args": [ { "prim": "string" }, { "string": "TEST_STRING_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" } ] },
+        { "prim": "PACK" },
+        { "prim": "PUSH", "args": [ { "prim": "nat" }, { "int": "6" } ] },
+        { "prim": "PUSH", "args": [ { "prim": "string" }, { "string": "TEST_STRING_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" } ] },
+        { "prim": "PACK" },
+        { "prim": "SIZE" },
+        { "prim": "SUB" },
+        { "prim": "ISNAT" },
+        { "prim": "IF_NONE", "args": [ [ { "prim": "PUSH", "args": [ { "prim": "int" }, { "int": "118" } ] }, { "prim": "FAILWITH" } ], [] ] },
+        { "prim": "PUSH", "args": [ { "prim": "nat" }, { "int": "6" } ] },
+        { "prim": "SLICE" },
+        { "prim": "IF_NONE", "args": [ [ { "prim": "PUSH", "args": [ { "prim": "string" }, { "string": "Could not encode string to bytes." } ] }, { "prim": "FAILWITH" } ], [] ] },
+        { "prim": "COMPARE" },
+        { "prim": "EQ" },
+        {
+          "prim": "IF",
+          "args": [
+            [],
+            [
+              {
+                "prim": "PUSH",
+                "args": [
+                  { "prim": "string" },
+                  {
+                    "string":
+                      "WrongCondition: sp.slice(sp.pack('TEST_STRING_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'), 6, sp.as_nat(sp.len(sp.pack('TEST_STRING_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX')) - 6)).open_some(message = 'Could not encode string to bytes.') == sp.bytes('0x544553545f535452494e475f585858585858585858585858585858585858585858585858585858585858585858585858585858585858')"
+                  }
+                ]
+              },
+              { "prim": "FAILWITH" }
+            ]
+          ]
+        },
+        {
+          "prim": "PUSH",
+          "args": [ { "prim": "bytes" }, { "bytes": "544553545f535452494e475f585858585858585858585858585858585858585858585858585858585858585858585858585858585858" } ]
+        },
+        { "prim": "SIZE" },
+        { "prim": "PACK" },
+        { "prim": "PUSH", "args": [ { "prim": "nat" }, { "int": "2" } ] },
+        {
+          "prim": "PUSH",
+          "args": [ { "prim": "bytes" }, { "bytes": "544553545f535452494e475f585858585858585858585858585858585858585858585858585858585858585858585858585858585858" } ]
+        },
+        { "prim": "SIZE" },
+        { "prim": "PACK" },
+        { "prim": "SIZE" },
+        { "prim": "SUB" },
+        { "prim": "ISNAT" },
+        { "prim": "IF_NONE", "args": [ [ { "prim": "PUSH", "args": [ { "prim": "int" }, { "int": "123" } ] }, { "prim": "FAILWITH" } ], [] ] },
+        { "prim": "PUSH", "args": [ { "prim": "nat" }, { "int": "2" } ] },
+        { "prim": "SLICE" },
+        { "prim": "IF_NONE", "args": [ [ { "prim": "PUSH", "args": [ { "prim": "string" }, { "string": "Could not encode nat to bytes." } ] }, { "prim": "FAILWITH" } ], [] ] },
+        { "prim": "DUP" },
+        { "prim": "SIZE" },
+        { "prim": "PUSH", "args": [ { "prim": "nat" }, { "int": "4" } ] },
+        { "prim": "COMPARE" },
+        { "prim": "GT" },
+        {
+          "prim": "LOOP",
+          "args": [
+            [
+              { "prim": "PUSH", "args": [ { "prim": "bytes" }, { "bytes": "00" } ] },
+              { "prim": "CONCAT" },
+              { "prim": "DUP" },
+              { "prim": "SIZE" },
+              { "prim": "PUSH", "args": [ { "prim": "nat" }, { "int": "4" } ] },
+              { "prim": "COMPARE" },
+              { "prim": "GT" }
+            ]
+          ]
+        },
+        { "prim": "PUSH", "args": [ { "prim": "string" }, { "string": "TEST_STRING_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" } ] },
+        {
+          "prim": "PUSH",
+          "args": [
+            { "prim": "list", "args": [ { "prim": "bytes" } ] },
+            [ { "bytes": "544553545f535452494e475f585858585858585858585858585858585858585858585858585858585858585858585858585858585858" } ]
+          ]
+        },
+        { "prim": "DIG", "args": [ { "int": "2" } ] },
+        { "prim": "CONS" },
+        { "prim": "PUSH", "args": [ { "prim": "bytes" }, { "bytes": "01" } ] },
+        { "prim": "CONS" },
+        { "prim": "PUSH", "args": [ { "prim": "bytes" }, { "bytes": "05" } ] },
+        { "prim": "CONS" },
+        { "prim": "CONCAT" },
+        { "prim": "UNPACK", "args": [ { "prim": "string" } ] },
+        { "prim": "IF_NONE", "args": [ [ { "prim": "PUSH", "args": [ { "prim": "string" }, { "string": "Could not decode bytes to string" } ] }, { "prim": "FAILWITH" } ], [] ] },
+        { "prim": "COMPARE" },
+        { "prim": "EQ" },
+        {
+          "prim": "IF",
+          "args": [
+            [],
+            [
+              {
+                "prim": "PUSH",
+                "args": [
+                  { "prim": "string" },
+                  {
+                    "string":
+                      "WrongCondition: sp.unpack(sp.concat(sp.list([sp.bytes('0x05'), sp.bytes('0x01'), lengthBytes.value, sp.bytes('0x544553545f535452494e475f585858585858585858585858585858585858585858585858585858585858585858585858585858585858')])), sp.TString).open_some(message = 'Could not decode bytes to string') == 'TEST_STRING_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'"
+                  }
+                ]
+              },
+              { "prim": "FAILWITH" }
+            ]
           ]
         },
         { "prim": "NIL", "args": [ { "prim": "operation" } ] },

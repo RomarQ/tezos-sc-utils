@@ -27,7 +27,27 @@ class Contract(sp.Contract):
 
 ## Documentation
 
+- Bytes
+
+    - **of_string(str)**
+
+        ```py
+        Utils.Bytes.of_string("TEST_STRING") # "0x544553545f535452494e47"
+        ```
+
+    - **of_nat(number)**
+
+        ```py
+        Utils.Bytes.of_nat(56) # "0x36"
+        ```
+
 - String
+
+    - **of_bytes(bytes)**
+
+        ```py
+        Utils.String.of_bytes(sp.bytes("0x544553545f535452494e47")) # "TEST_STRING"
+        ```
 
     - **of_int(number)**
 
