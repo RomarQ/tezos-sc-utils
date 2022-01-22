@@ -86,8 +86,8 @@ class Contract(sp.Contract):
     - **is_kt1(address)**
 
         ```py
-        Utils.Address.is_kt1("tz28QJHLyqvaY2rXAoFZTbxrXeD88NA8wscC") # false
-        Utils.Address.is_kt1("KT18hYjnko76SBVv6TaCT4kU6B32mJk6JWLZ") # true
+        Utils.Address.is_kt1(sp.address("tz28QJHLyqvaY2rXAoFZTbxrXeD88NA8wscC")) # False
+        Utils.Address.is_kt1(sp.address("KT18hYjnko76SBVv6TaCT4kU6B32mJk6JWLZ")) # True
         ```
 
 
