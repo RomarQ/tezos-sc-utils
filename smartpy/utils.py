@@ -296,6 +296,38 @@ class Int:
 
         return res.value
 
+class Address:
+    @staticmethod
+    def is_kt1(address):
+        """Check if address is an originated contract"""
+        return (sp.address("KT1XvNYseNDJJ6Kw27qhSEDF8ys8JhDopzfG") >= address) & (sp.address("KT18amZmM5W7qDWVt2pH6uj7sCEd3kbzLrHT") <= address)
+        """
+        Inlined michelson version
+
+        return sp.michelson(
+            '''
+            DUP;
+            PUSH address \\"KT1XvNYseNDJJ6Kw27qhSEDF8ys8JhDopzfG\\"; # Highest KT1
+            COMPARE;
+            GE;
+            IF
+                {
+                    # Input address is less than or equal to the highest KT1
+                    PUSH address \\"KT18amZmM5W7qDWVt2pH6uj7sCEd3kbzLrHT\\"; # Lowest KT1
+                    COMPARE;
+                    LE;
+                }
+                {
+                    # Input address is not a KT1 address
+                    DROP;
+                    PUSH bool False;
+                };
+            ''',
+            [sp.TAddress],
+            [sp.TBool]
+        )(address)
+        """
+
 """
     ###################################################
     The methods bellow are not smart contract utilities

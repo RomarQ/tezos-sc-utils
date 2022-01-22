@@ -81,6 +81,16 @@ class Contract(sp.Contract):
         Utils.Int.of_string("1") # 1
         ```
 
+- Address
+
+    - **is_kt1(address)**
+
+        ```py
+        Utils.Address.is_kt1("tz28QJHLyqvaY2rXAoFZTbxrXeD88NA8wscC") # false
+        Utils.Address.is_kt1("KT18hYjnko76SBVv6TaCT4kU6B32mJk6JWLZ") # true
+        ```
+
+
 - Math
 
     - **median(list)**

@@ -1937,6 +1937,79 @@
             ]
           ]
         },
+        { "prim": "PUSH", "args": [ { "prim": "bool" }, { "prim": "False" } ] },
+        { "prim": "PUSH", "args": [ { "prim": "address" }, { "string": "tz28QJHLyqvaY2rXAoFZTbxrXeD88NA8wscC" } ] },
+        { "prim": "PUSH", "args": [ { "prim": "address" }, { "string": "KT1XvNYseNDJJ6Kw27qhSEDF8ys8JhDopzfG" } ] },
+        { "prim": "COMPARE" },
+        { "prim": "GE" },
+        {
+          "prim": "IF",
+          "args": [
+            [
+              { "prim": "PUSH", "args": [ { "prim": "address" }, { "string": "tz28QJHLyqvaY2rXAoFZTbxrXeD88NA8wscC" } ] },
+              { "prim": "PUSH", "args": [ { "prim": "address" }, { "string": "KT18amZmM5W7qDWVt2pH6uj7sCEd3kbzLrHT" } ] },
+              { "prim": "COMPARE" },
+              { "prim": "LE" }
+            ],
+            [ { "prim": "PUSH", "args": [ { "prim": "bool" }, { "prim": "False" } ] } ]
+          ]
+        },
+        { "prim": "COMPARE" },
+        { "prim": "EQ" },
+        {
+          "prim": "IF",
+          "args": [
+            [],
+            [
+              {
+                "prim": "PUSH",
+                "args": [
+                  { "prim": "string" },
+                  {
+                    "string":
+                      "WrongCondition: ((sp.address('KT1XvNYseNDJJ6Kw27qhSEDF8ys8JhDopzfG') >= sp.address('tz28QJHLyqvaY2rXAoFZTbxrXeD88NA8wscC')) & (sp.address('KT18amZmM5W7qDWVt2pH6uj7sCEd3kbzLrHT') <= sp.address('tz28QJHLyqvaY2rXAoFZTbxrXeD88NA8wscC'))) == False"
+                  }
+                ]
+              },
+              { "prim": "FAILWITH" }
+            ]
+          ]
+        },
+        { "prim": "PUSH", "args": [ { "prim": "address" }, { "string": "KT18hYjnko76SBVv6TaCT4kU6B32mJk6JWLZ" } ] },
+        { "prim": "PUSH", "args": [ { "prim": "address" }, { "string": "KT1XvNYseNDJJ6Kw27qhSEDF8ys8JhDopzfG" } ] },
+        { "prim": "COMPARE" },
+        { "prim": "GE" },
+        {
+          "prim": "IF",
+          "args": [
+            [
+              { "prim": "PUSH", "args": [ { "prim": "address" }, { "string": "KT18hYjnko76SBVv6TaCT4kU6B32mJk6JWLZ" } ] },
+              { "prim": "PUSH", "args": [ { "prim": "address" }, { "string": "KT18amZmM5W7qDWVt2pH6uj7sCEd3kbzLrHT" } ] },
+              { "prim": "COMPARE" },
+              { "prim": "LE" }
+            ],
+            [ { "prim": "PUSH", "args": [ { "prim": "bool" }, { "prim": "False" } ] } ]
+          ]
+        },
+        {
+          "prim": "IF",
+          "args": [
+            [],
+            [
+              {
+                "prim": "PUSH",
+                "args": [
+                  { "prim": "string" },
+                  {
+                    "string":
+                      "WrongCondition: (sp.address('KT1XvNYseNDJJ6Kw27qhSEDF8ys8JhDopzfG') >= sp.address('KT18hYjnko76SBVv6TaCT4kU6B32mJk6JWLZ')) & (sp.address('KT18amZmM5W7qDWVt2pH6uj7sCEd3kbzLrHT') <= sp.address('KT18hYjnko76SBVv6TaCT4kU6B32mJk6JWLZ'))"
+                  }
+                ]
+              },
+              { "prim": "FAILWITH" }
+            ]
+          ]
+        },
         { "prim": "NIL", "args": [ { "prim": "operation" } ] },
         { "prim": "PAIR" }
       ]

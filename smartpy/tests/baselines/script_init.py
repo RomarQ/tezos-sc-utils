@@ -64,6 +64,9 @@ class UtilsTester1(sp.Contract):
         sp.verify(utils.Bytes.of_string("TEST_STRING_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX") == sp.bytes("0x544553545f535452494e475f585858585858585858585858585858585858585858585858585858585858585858585858585858585858"))
         sp.verify(utils.String.of_bytes(sp.bytes("0x544553545f535452494e475f585858585858585858585858585858585858585858585858585858585858585858585858585858585858")) == "TEST_STRING_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
 
+        sp.verify(utils.Address.is_kt1(sp.address("tz28QJHLyqvaY2rXAoFZTbxrXeD88NA8wscC")) == False)
+        sp.verify(utils.Address.is_kt1(sp.address("KT18hYjnko76SBVv6TaCT4kU6B32mJk6JWLZ"))) # true
+
 class UtilsTester2(sp.Contract):
 
     @sp.private_lambda()
@@ -123,6 +126,9 @@ class UtilsTester2(sp.Contract):
         sp.verify(Utils.Bytes.of_nat(54) == sp.bytes("0x36"))
         sp.verify(Utils.Bytes.of_string("TEST_STRING_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX") == sp.bytes("0x544553545f535452494e475f585858585858585858585858585858585858585858585858585858585858585858585858585858585858"))
         sp.verify(Utils.String.of_bytes(sp.bytes("0x544553545f535452494e475f585858585858585858585858585858585858585858585858585858585858585858585858585858585858")) == "TEST_STRING_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
+
+        sp.verify(Utils.Address.is_kt1(sp.address("tz28QJHLyqvaY2rXAoFZTbxrXeD88NA8wscC")) == False)
+        sp.verify(Utils.Address.is_kt1(sp.address("KT18hYjnko76SBVv6TaCT4kU6B32mJk6JWLZ"))) # true
 
 @sp.add_test(name = "UtilsTester1_test")
 def test1():
