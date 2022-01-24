@@ -307,13 +307,13 @@ class Address:
         return sp.michelson(
             '''
             DUP;
-            PUSH address \\"KT1XvNYseNDJJ6Kw27qhSEDF8ys8JhDopzfG\\"; # Highest KT1
+            PUSH address "KT1XvNYseNDJJ6Kw27qhSEDF8ys8JhDopzfG"; # Highest KT1
             COMPARE;
             GE;
             IF
                 {
                     # Input address is less than or equal to the highest KT1
-                    PUSH address \\"KT18amZmM5W7qDWVt2pH6uj7sCEd3kbzLrHT\\"; # Lowest KT1
+                    PUSH address "KT18amZmM5W7qDWVt2pH6uj7sCEd3kbzLrHT"; # Lowest KT1
                     COMPARE;
                     LE;
                 }
