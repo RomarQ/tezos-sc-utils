@@ -15,6 +15,10 @@ class UtilsTester1(sp.Contract):
         sp.result(utils.Int.of_string(s))
 
     @sp.private_lambda()
+    def int_of_bytes(self, n):
+        sp.result(utils.Int.of_bytes(n))
+
+    @sp.private_lambda()
     def string_split(self, params):
         sp.result(utils.String.split(params.text, params.separator))
 
@@ -43,6 +47,8 @@ class UtilsTester1(sp.Contract):
         sp.verify(utils.Int.of_string("1") == 1)
         sp.verify(utils.Int.of_string("-1") == -1)
         sp.verify(self.int_of_string("2") == 2)
+        sp.verify(Utils.Int.of_bytes(sp.bytes("0x0100")) == 256)
+        sp.verify(self.int_of_bytes(sp.bytes("0x0100")) == 256)
 
         sp.verify_equal(utils.String.split("a b", " "), ["a","b"])
         sp.verify_equal(utils.String.split("b,a", ","), ["b","a"])
@@ -78,6 +84,10 @@ class UtilsTester2(sp.Contract):
         sp.result(Utils.Int.of_string(s))
 
     @sp.private_lambda()
+    def int_of_bytes(self, n):
+        sp.result(utils.Int.of_bytes(n))
+
+    @sp.private_lambda()
     def string_split(self, params):
         sp.result(Utils.String.split(params.text, params.separator))
 
@@ -106,6 +116,8 @@ class UtilsTester2(sp.Contract):
         sp.verify(Utils.Int.of_string("1") == 1)
         sp.verify(Utils.Int.of_string("-1") == -1)
         sp.verify(self.int_of_string("2") == 2)
+        sp.verify(Utils.Int.of_bytes(sp.bytes("0x0100")) == 256)
+        sp.verify(self.int_of_bytes(sp.bytes("0x0100")) == 256)
 
         sp.verify_equal(Utils.String.split("a b", " "), ["a","b"])
         sp.verify_equal(Utils.String.split("b,a", ","), ["b","a"])

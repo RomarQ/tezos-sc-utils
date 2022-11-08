@@ -81,6 +81,12 @@ class Contract(sp.Contract):
         Utils.Int.of_string("1") # 1
         ```
 
+    - **of_bytes(b)**
+
+        ```py
+        Utils.Int.of_bytes(sp.bytes("0x0100")) # 256
+        ```
+
 - Address
 
     - **is_kt1(address)**

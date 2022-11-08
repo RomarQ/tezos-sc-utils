@@ -7,7 +7,7 @@ all:
 
 # <SmartPY>
 
-test:
+test: install-smartpy-utils
 	@$(MAKE) -s test-smartpy
 
 install-smartpy: $(build_folder)/install-smartpy

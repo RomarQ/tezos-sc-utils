@@ -75,22 +75,22 @@ class Math:
         """
 
     @staticmethod
-    def median(submissions):
+    def median(l):
         """
             Returns the sorted middle, or the average of the two middle
             indexed items if the array has an even number of elements.
         """
         hist = sp.local(generate_var('hist'), {})
-        with sp.for_(generate_var("x"), submissions) as x:
+        with sp.for_(generate_var("x"), l) as x:
             with sp.if_(hist.value.contains(x)):
                 hist.value[x] += 1
             with sp.else_():
                 hist.value[x] = 1
 
-        submissions_size = sp.compute(sp.len(submissions))
+        l_size = sp.compute(sp.len(l))
         result = sp.local(generate_var('result'), sp.nat(0))
-        half = sp.local(generate_var('half'), submissions_size / 2)
-        use_average = sp.local(generate_var('use_average'), half.value * 2 == submissions_size)
+        half = sp.local(generate_var('half'), l_size / 2)
+        use_average = sp.local(generate_var('use_average'), half.value * 2 == l_size)
         i = sp.local(generate_var('i'), 0)
         with sp.for_(generate_var("x"), hist.value.items()) as x:
             with sp.if_(use_average.value):
@@ -295,6 +295,24 @@ class Int:
             res.value *= -1
 
         return res.value
+
+    @staticmethod
+    def of_bytes(b):
+        length = sp.compute(sp.len(b))
+        decimal = sp.local(generate_var(), sp.nat(0))
+        with sp.for_(generate_var(), sp.range(0, length)) as pos:
+            byte = sp.compute(sp.slice(b, pos, 1).open_some(sp.unit))
+            base = sp.compute(sp.as_nat(length - (pos + 1)) * 2)
+            # - Packed prefix: 0x05 (1 byte)
+            # - Data identifier: (bytes = 0x0a) (1 byte)
+            # - Length ("0x00000020" = 32) (4 bytes)
+            # - Data (32 bytes)
+            packedBytes = sp.bytes("0x050a00000020") + byte + sp.bytes("0x" + "00" * 31)
+            decimal.value += sp.as_nat(
+                sp.to_int(sp.unpack(packedBytes, sp.TBls12_381_fr).open_some(sp.unit))
+            ) * Math.pow(16, base)
+
+        return decimal.value
 
 class Address:
     @staticmethod
