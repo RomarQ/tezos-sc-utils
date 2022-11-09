@@ -122,13 +122,21 @@ class Bytes:
         return sp.slice(b, 6, sp.as_nat(sp.len(b) - 6)).open_some("Could not encode string to bytes.")
 
     @staticmethod
-    def of_nat(number):
-        sp.verify(number < 64, "(number) must be lower than 64")
-        b = sp.pack(number)
-        # Remove (packed prefix), (Data identifier)
-        # - Packed prefix: 0x05 (1 byte)
-        # - Data identifier: (int = 0x00) (1 byte)
-        return sp.slice(b, 2, sp.as_nat(sp.len(b) - 2)).open_some("Could not encode nat to bytes.")
+    def of_uint8(n):
+        return sp.slice(sp.pack(sp.mul(sp.to_int(n), sp.bls12_381_fr("0x01"))), 6, 1).open_some()
+
+    @staticmethod
+    def of_nat(n):
+        # Bls12_381_fr does not work for numbers above 254 bits
+        sp.verify(n < 2**254, "NUMBER_TOO_BIG")
+
+        result = sp.local(generate_var("bytes"), sp.bytes("0x"))
+        value = sp.local(generate_var("value"), n)
+        with sp.while_(value.value != 0):
+            result.value = Bytes.of_uint8(value.value) + result.value
+            value.value >>= 8
+
+        return result.value
 
 class String:
     @staticmethod
