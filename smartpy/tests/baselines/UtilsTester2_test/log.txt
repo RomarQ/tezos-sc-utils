@@ -5,9 +5,9 @@ Creating contract KT1TezoooozzSmartPyzzSTATiCzzzwwBFA1
  => smartpy/tests/baselines/UtilsTester2_test/step_000_cont_0_sizes.csv 2
  => smartpy/tests/baselines/UtilsTester2_test/step_000_cont_0_storage.py 1
  => smartpy/tests/baselines/UtilsTester2_test/step_000_cont_0_types.py 7
- => smartpy/tests/baselines/UtilsTester2_test/step_000_cont_0_contract.tz 2174
- => smartpy/tests/baselines/UtilsTester2_test/step_000_cont_0_contract.json 2018
- => smartpy/tests/baselines/UtilsTester2_test/step_000_cont_0_contract.py 226
+ => smartpy/tests/baselines/UtilsTester2_test/step_000_cont_0_contract.tz 2501
+ => smartpy/tests/baselines/UtilsTester2_test/step_000_cont_0_contract.json 2286
+ => smartpy/tests/baselines/UtilsTester2_test/step_000_cont_0_contract.py 254
  => smartpy/tests/baselines/UtilsTester2_test/step_001_cont_0_params.py 1
  => smartpy/tests/baselines/UtilsTester2_test/step_001_cont_0_params.tz 1
  => smartpy/tests/baselines/UtilsTester2_test/step_001_cont_0_params.json 1
