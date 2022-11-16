@@ -49,12 +49,12 @@ class Contract(sp.Contract):
       utils_28.value *= -1
     sp.verify(utils_28.value == (-1))
     sp.verify(self.int_of_string('2') == 2)
-    compute_utils_309 = sp.local("compute_utils_309", sp.len(sp.bytes('0x0100')))
+    compute_utils_326 = sp.local("compute_utils_326", sp.len(sp.bytes('0x0100')))
     utils_0 = sp.local("utils_0", 0)
-    sp.for utils_1 in sp.range(0, compute_utils_309.value):
-      compute_utils_312 = sp.local("compute_utils_312", sp.slice(sp.bytes('0x0100'), utils_1, 1).open_some(message = sp.unit))
-      compute_utils_313 = sp.local("compute_utils_313", sp.as_nat(compute_utils_309.value - (utils_1 + 1)) * 2)
-      utils_0.value += sp.as_nat(sp.to_int(sp.unpack((sp.bytes('0x050a00000020') + compute_utils_312.value) + sp.bytes('0x00000000000000000000000000000000000000000000000000000000000000'), sp.TBls12_381_fr).open_some(message = sp.unit))) * sp.michelson("\n            DUP;\n            PUSH nat 0;\n            COMPARE;\n            NEQ;\n            LOOP\n            {\n                PUSH nat 0;\n                PUSH nat 2;\n                DUP 3;\n                EDIV;\n                IF_NONE\n                {\n                    UNIT;\n                    FAILWITH;\n                }\n                {\n                    CDR;\n                };\n                COMPARE;\n                NEQ;\n                IF\n                {\n                    SWAP;\n                    DUP;\n                    DUG 2;\n                    DIG 3;\n                    MUL;\n                    DUG 2;\n                }\n                {};\n                PUSH nat 1;\n                SWAP;\n                LSR;\n                SWAP;\n                DUP;\n                MUL;\n                SWAP;\n                DUP;\n                PUSH nat 0;\n                COMPARE;\n                NEQ;\n            };\n            DROP 2;\n            ")(compute_utils_313.value, 16, 1)
+    sp.for utils_1 in sp.range(0, compute_utils_326.value):
+      compute_utils_329 = sp.local("compute_utils_329", sp.slice(sp.bytes('0x0100'), utils_1, 1).open_some(message = sp.unit))
+      compute_utils_330 = sp.local("compute_utils_330", sp.as_nat(compute_utils_326.value - (utils_1 + 1)) * 2)
+      utils_0.value += sp.as_nat(sp.to_int(sp.unpack((sp.bytes('0x050a00000020') + compute_utils_329.value) + sp.bytes('0x00000000000000000000000000000000000000000000000000000000000000'), sp.TBls12_381_fr).open_some(message = sp.unit))) * sp.michelson("\n            DUP;\n            PUSH nat 0;\n            COMPARE;\n            NEQ;\n            LOOP\n            {\n                PUSH nat 0;\n                PUSH nat 2;\n                DUP 3;\n                EDIV;\n                IF_NONE\n                {\n                    UNIT;\n                    FAILWITH;\n                }\n                {\n                    CDR;\n                };\n                COMPARE;\n                NEQ;\n                IF\n                {\n                    SWAP;\n                    DUP;\n                    DUG 2;\n                    DIG 3;\n                    MUL;\n                    DUG 2;\n                }\n                {};\n                PUSH nat 1;\n                SWAP;\n                LSR;\n                SWAP;\n                DUP;\n                MUL;\n                SWAP;\n                DUP;\n                PUSH nat 0;\n                COMPARE;\n                NEQ;\n            };\n            DROP 2;\n            ")(compute_utils_330.value, 16, 1)
     sp.verify(utils_0.value == 256)
     sp.verify(self.int_of_bytes(sp.bytes('0x0100')) == 256)
     utils_30 = sp.local("utils_30", 0)
@@ -139,6 +139,16 @@ class Contract(sp.Contract):
           utils_48_i.value += utils_49_x.value
     sp.verify(utils_45_result.value == 2)
     sp.verify(self.math_median(sp.list([1, 2, 2, 5])) == 2)
+    compute_utils_118 = sp.local("compute_utils_118", 3 - sp.len(sp.bytes('0x11')))
+    utils_2_bytes = sp.local("utils_2_bytes", sp.bytes('0x'))
+    sp.while sp.len(utils_2_bytes.value) < sp.as_nat(compute_utils_118.value):
+      utils_2_bytes.value = sp.bytes('0x00') + utils_2_bytes.value
+    sp.verify((utils_2_bytes.value + sp.bytes('0x11')) == sp.bytes('0x000011'))
+    compute_utils_126 = sp.local("compute_utils_126", 3 - sp.len(sp.bytes('0x11')))
+    utils_3_bytes = sp.local("utils_3_bytes", sp.bytes('0x'))
+    sp.while sp.len(utils_3_bytes.value) < sp.as_nat(compute_utils_126.value):
+      utils_3_bytes.value = sp.bytes('0x00') + utils_3_bytes.value
+    sp.verify((sp.bytes('0x11') + utils_3_bytes.value) == sp.bytes('0x110000'))
     sp.verify(True, 'NUMBER_TOO_BIG')
     utils_50_bytes = sp.local("utils_50_bytes", sp.bytes('0x'))
     utils_51_value = sp.local("utils_51_value", 54)
@@ -162,12 +172,12 @@ class Contract(sp.Contract):
 
   @sp.private_lambda()
   def int_of_bytes(_x0):
-    compute_smartpy_utils_309 = sp.local("compute_smartpy_utils_309", sp.len(_x0))
+    compute_smartpy_utils_326 = sp.local("compute_smartpy_utils_326", sp.len(_x0))
     utils_0 = sp.local("utils_0", 0)
-    sp.for utils_1 in sp.range(0, compute_smartpy_utils_309.value):
-      compute_smartpy_utils_312 = sp.local("compute_smartpy_utils_312", sp.slice(_x0, utils_1, 1).open_some(message = sp.unit))
-      compute_smartpy_utils_313 = sp.local("compute_smartpy_utils_313", sp.as_nat(compute_smartpy_utils_309.value - (utils_1 + 1)) * 2)
-      utils_0.value += sp.as_nat(sp.to_int(sp.unpack((sp.bytes('0x050a00000020') + compute_smartpy_utils_312.value) + sp.bytes('0x00000000000000000000000000000000000000000000000000000000000000'), sp.TBls12_381_fr).open_some(message = sp.unit))) * sp.michelson("\n            DUP;\n            PUSH nat 0;\n            COMPARE;\n            NEQ;\n            LOOP\n            {\n                PUSH nat 0;\n                PUSH nat 2;\n                DUP 3;\n                EDIV;\n                IF_NONE\n                {\n                    UNIT;\n                    FAILWITH;\n                }\n                {\n                    CDR;\n                };\n                COMPARE;\n                NEQ;\n                IF\n                {\n                    SWAP;\n                    DUP;\n                    DUG 2;\n                    DIG 3;\n                    MUL;\n                    DUG 2;\n                }\n                {};\n                PUSH nat 1;\n                SWAP;\n                LSR;\n                SWAP;\n                DUP;\n                MUL;\n                SWAP;\n                DUP;\n                PUSH nat 0;\n                COMPARE;\n                NEQ;\n            };\n            DROP 2;\n            ")(compute_smartpy_utils_313.value, 16, 1)
+    sp.for utils_1 in sp.range(0, compute_smartpy_utils_326.value):
+      compute_smartpy_utils_329 = sp.local("compute_smartpy_utils_329", sp.slice(_x0, utils_1, 1).open_some(message = sp.unit))
+      compute_smartpy_utils_330 = sp.local("compute_smartpy_utils_330", sp.as_nat(compute_smartpy_utils_326.value - (utils_1 + 1)) * 2)
+      utils_0.value += sp.as_nat(sp.to_int(sp.unpack((sp.bytes('0x050a00000020') + compute_smartpy_utils_329.value) + sp.bytes('0x00000000000000000000000000000000000000000000000000000000000000'), sp.TBls12_381_fr).open_some(message = sp.unit))) * sp.michelson("\n            DUP;\n            PUSH nat 0;\n            COMPARE;\n            NEQ;\n            LOOP\n            {\n                PUSH nat 0;\n                PUSH nat 2;\n                DUP 3;\n                EDIV;\n                IF_NONE\n                {\n                    UNIT;\n                    FAILWITH;\n                }\n                {\n                    CDR;\n                };\n                COMPARE;\n                NEQ;\n                IF\n                {\n                    SWAP;\n                    DUP;\n                    DUG 2;\n                    DIG 3;\n                    MUL;\n                    DUG 2;\n                }\n                {};\n                PUSH nat 1;\n                SWAP;\n                LSR;\n                SWAP;\n                DUP;\n                MUL;\n                SWAP;\n                DUP;\n                PUSH nat 0;\n                COMPARE;\n                NEQ;\n            };\n            DROP 2;\n            ")(compute_smartpy_utils_330.value, 16, 1)
     sp.result(utils_0.value)
 
   @sp.private_lambda()

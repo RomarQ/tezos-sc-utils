@@ -112,6 +112,23 @@ class Math:
         return result.value
 
 class Bytes:
+
+    @staticmethod
+    def pad_start(b, fill, length):
+        diff = sp.as_nat(sp.compute(length - sp.len(b)))
+        prefix = sp.local(generate_var("bytes"), sp.bytes("0x"))
+        with sp.while_(sp.len(prefix.value) < diff):
+            prefix.value = fill + prefix.value
+        return prefix.value + b
+
+    @staticmethod
+    def pad_end(b, fill, length):
+        diff = sp.as_nat(sp.compute(length - sp.len(b)))
+        postfix = sp.local(generate_var("bytes"), sp.bytes("0x"))
+        with sp.while_(sp.len(postfix.value) < diff):
+            postfix.value = fill + postfix.value
+        return b + postfix.value
+
     @staticmethod
     def of_string(text):
         b = sp.pack(text)

@@ -29,6 +29,18 @@ class Contract(sp.Contract):
 
 - Bytes
 
+    - **pad_start(bytes, fill, length)**
+
+        ```py
+        Utils.Bytes.pad_start(sp.bytes("0x11"), sp.bytes("0x00"), 3) # "0x000011"
+        ```
+
+    - **pad_end(bytes, fill, length)**
+
+        ```py
+        Utils.Bytes.pad_end(sp.bytes("0x11"), sp.bytes("0x00"), 3) # "0x110000"
+        ```
+
     - **of_string(str)**
 
         ```py
