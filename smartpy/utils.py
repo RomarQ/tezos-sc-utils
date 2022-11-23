@@ -323,11 +323,11 @@ class Int:
 
     @staticmethod
     def of_bytes(b):
-        length = sp.compute(sp.len(b))
+        length = sp.local(generate_var(), sp.len(b))
         decimal = sp.local(generate_var(), sp.nat(0))
-        with sp.for_(generate_var(), sp.range(0, length)) as pos:
+        with sp.for_(generate_var(), sp.range(0, length.value)) as pos:
             byte = sp.compute(sp.slice(b, pos, 1).open_some(sp.unit))
-            base = sp.compute(sp.as_nat(length - (pos + 1)) * 2)
+            base = sp.compute(sp.as_nat(length.value - (pos + 1)) * 2)
             # - Packed prefix: 0x05 (1 byte)
             # - Data identifier: (bytes = 0x0a) (1 byte)
             # - Length ("0x00000020" = 32) (4 bytes)

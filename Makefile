@@ -1,13 +1,21 @@
 build_folder := _build
 touch_done=@mkdir -p $(@D) && touch $@;
 
+TESTS := $(filter-out %/__init__.py, $(wildcard smartpy/tests/*.py))
+
 all:
 	@$(MAKE) -s install-smartpy
 	@$(MAKE) -s install-smartpy-utils
 
 # <SmartPY>
 
-test: install-smartpy-utils
+smartpy/tests/%: smartpy/tests/%.py
+	@$(build_folder)/smartpy-cli/SmartPy.sh test $< smartpy/tests/baselines/$*
+
+clean_tests:
+	@rm -rf smartpy/tests/baselines
+
+test: install-smartpy-utils clean_tests $(TESTS:%.py=%)
 	@$(MAKE) -s test-smartpy
 
 install-smartpy: $(build_folder)/install-smartpy

@@ -1,0 +1,286 @@
+parameter (unit %test);
+storage   unit;
+code
+  {
+    UNPAIR;     # @parameter : @storage
+    # == test ==
+    # utils_0 = sp.local("utils_0", sp.len(sp.bytes('0xff'))) # @parameter : @storage
+    PUSH bytes 0xff; # bytes : @parameter : @storage
+    SIZE;       # nat : @parameter : @storage
+    # utils_1 = sp.local("utils_1", 0) # nat : @parameter : @storage
+    PUSH nat 0; # nat : nat : @parameter : @storage
+    SWAP;       # nat : nat : @parameter : @storage
+    # for utils_2 in sp.range(0, utils_0.value): ... (sp.TNat) # nat : nat : @parameter : @storage
+    DUP;        # nat : nat : nat : @parameter : @storage
+    DUG 2;      # nat : nat : nat : @parameter : @storage
+    PUSH nat 0; # nat : nat : nat : nat : @parameter : @storage
+    DUP;        # nat : nat : nat : nat : nat : @parameter : @storage
+    DUP 3;      # nat : nat : nat : nat : nat : nat : @parameter : @storage
+    COMPARE;    # int : nat : nat : nat : nat : @parameter : @storage
+    GT;         # bool : nat : nat : nat : nat : @parameter : @storage
+    LOOP
+      {
+        # compute_utils_329 = sp.local("compute_utils_329", sp.slice(sp.bytes('0xff'), utils_2, 1).open_some(message = sp.unit)) # nat : nat : nat : nat : @parameter : @storage
+        PUSH bytes 0xff; # bytes : nat : nat : nat : nat : @parameter : @storage
+        PUSH nat 1; # nat : bytes : nat : nat : nat : nat : @parameter : @storage
+        DUP 3;      # nat : nat : bytes : nat : nat : nat : nat : @parameter : @storage
+        SLICE;      # option bytes : nat : nat : nat : nat : @parameter : @storage
+        IF_NONE
+          {
+            UNIT;       # unit : nat : nat : nat : nat : @parameter : @storage
+            FAILWITH;   # FAILED
+          }
+          {}; # @some : nat : nat : nat : nat : @parameter : @storage
+        # compute_utils_330 = sp.local("compute_utils_330", sp.as_nat(utils_0.value - (utils_2 + 1)) * 2) # @some : nat : nat : nat : nat : @parameter : @storage
+        PUSH nat 2; # nat : @some : nat : nat : nat : nat : @parameter : @storage
+        PUSH nat 1; # nat : nat : @some : nat : nat : nat : nat : @parameter : @storage
+        DUP 4;      # nat : nat : nat : @some : nat : nat : nat : nat : @parameter : @storage
+        ADD;        # nat : nat : @some : nat : nat : nat : nat : @parameter : @storage
+        DUP 7;      # nat : nat : nat : @some : nat : nat : nat : nat : @parameter : @storage
+        SUB;        # int : nat : @some : nat : nat : nat : nat : @parameter : @storage
+        ISNAT;      # option nat : nat : @some : nat : nat : nat : nat : @parameter : @storage
+        IF_NONE
+          {
+            PUSH int 330; # int : nat : @some : nat : nat : nat : nat : @parameter : @storage
+            FAILWITH;   # FAILED
+          }
+          {}; # @some : nat : @some : nat : nat : nat : nat : @parameter : @storage
+        MUL;        # nat : @some : nat : nat : nat : nat : @parameter : @storage
+        # utils_1.value += sp.as_nat(sp.to_int(sp.unpack((sp.bytes('0x050a00000020') + compute_utils_329.value) + sp.bytes('0x00000000000000000000000000000000000000000000000000000000000000'), sp.TBls12_381_fr).open_some(message = sp.unit))) * sp.michelson("\n            DUP;\n            PUSH nat 0;\n            COMPARE;\n            NEQ;\n            LOOP\n            {\n                PUSH nat 0;\n                PUSH nat 2;\n                DUP 3;\n                EDIV;\n                IF_NONE\n                {\n                    UNIT;\n                    FAILWITH;\n                }\n                {\n                    CDR;\n                };\n                COMPARE;\n                NEQ;\n                IF\n                {\n                    SWAP;\n                    DUP;\n                    DUG 2;\n                    DIG 3;\n                    MUL;\n                    DUG 2;\n                }\n                {};\n                PUSH nat 1;\n                SWAP;\n                LSR;\n                SWAP;\n                DUP;\n                MUL;\n                SWAP;\n                DUP;\n                PUSH nat 0;\n                COMPARE;\n                NEQ;\n            };\n            DROP 2;\n            ")(compute_utils_330.value, 16, 1) # nat : @some : nat : nat : nat : nat : @parameter : @storage
+        PUSH nat 1; # nat : nat : @some : nat : nat : nat : nat : @parameter : @storage
+        PUSH nat 16; # nat : nat : nat : @some : nat : nat : nat : nat : @parameter : @storage
+        DUP 3;      # nat : nat : nat : nat : @some : nat : nat : nat : nat : @parameter : @storage
+        DUP;        # nat : nat : nat : nat : nat : @some : nat : nat : nat : nat : @parameter : @storage
+        PUSH nat 0; # nat : nat : nat : nat : nat : nat : @some : nat : nat : nat : nat : @parameter : @storage
+        COMPARE;    # int : nat : nat : nat : nat : @some : nat : nat : nat : nat : @parameter : @storage
+        NEQ;        # bool : nat : nat : nat : nat : @some : nat : nat : nat : nat : @parameter : @storage
+        LOOP
+          {
+            PUSH nat 0; # nat : nat : nat : nat : nat : @some : nat : nat : nat : nat : @parameter : @storage
+            PUSH nat 2; # nat : nat : nat : nat : nat : nat : @some : nat : nat : nat : nat : @parameter : @storage
+            DUP 3;      # nat : nat : nat : nat : nat : nat : nat : @some : nat : nat : nat : nat : @parameter : @storage
+            EDIV;       # option (pair nat nat) : nat : nat : nat : nat : nat : @some : nat : nat : nat : nat : @parameter : @storage
+            IF_NONE
+              {
+                UNIT;       # unit : nat : nat : nat : nat : nat : @some : nat : nat : nat : nat : @parameter : @storage
+                FAILWITH;   # FAILED
+              }
+              {
+                CDR;        # nat : nat : nat : nat : nat : nat : @some : nat : nat : nat : nat : @parameter : @storage
+              }; # nat : nat : nat : nat : nat : nat : @some : nat : nat : nat : nat : @parameter : @storage
+            COMPARE;    # int : nat : nat : nat : nat : @some : nat : nat : nat : nat : @parameter : @storage
+            NEQ;        # bool : nat : nat : nat : nat : @some : nat : nat : nat : nat : @parameter : @storage
+            IF
+              {
+                SWAP;       # nat : nat : nat : nat : @some : nat : nat : nat : nat : @parameter : @storage
+                DUP;        # nat : nat : nat : nat : nat : @some : nat : nat : nat : nat : @parameter : @storage
+                DUG 2;      # nat : nat : nat : nat : nat : @some : nat : nat : nat : nat : @parameter : @storage
+                DIG 3;      # nat : nat : nat : nat : nat : @some : nat : nat : nat : nat : @parameter : @storage
+                MUL;        # nat : nat : nat : nat : @some : nat : nat : nat : nat : @parameter : @storage
+                DUG 2;      # nat : nat : nat : nat : @some : nat : nat : nat : nat : @parameter : @storage
+              }
+              {}; # nat : nat : nat : nat : @some : nat : nat : nat : nat : @parameter : @storage
+            PUSH nat 1; # nat : nat : nat : nat : nat : @some : nat : nat : nat : nat : @parameter : @storage
+            SWAP;       # nat : nat : nat : nat : nat : @some : nat : nat : nat : nat : @parameter : @storage
+            LSR;        # nat : nat : nat : nat : @some : nat : nat : nat : nat : @parameter : @storage
+            SWAP;       # nat : nat : nat : nat : @some : nat : nat : nat : nat : @parameter : @storage
+            DUP;        # nat : nat : nat : nat : nat : @some : nat : nat : nat : nat : @parameter : @storage
+            MUL;        # nat : nat : nat : nat : @some : nat : nat : nat : nat : @parameter : @storage
+            SWAP;       # nat : nat : nat : nat : @some : nat : nat : nat : nat : @parameter : @storage
+            DUP;        # nat : nat : nat : nat : nat : @some : nat : nat : nat : nat : @parameter : @storage
+            PUSH nat 0; # nat : nat : nat : nat : nat : nat : @some : nat : nat : nat : nat : @parameter : @storage
+            COMPARE;    # int : nat : nat : nat : nat : @some : nat : nat : nat : nat : @parameter : @storage
+            NEQ;        # bool : nat : nat : nat : nat : @some : nat : nat : nat : nat : @parameter : @storage
+          }; # nat : nat : nat : nat : @some : nat : nat : nat : nat : @parameter : @storage
+        DROP 2;     # nat : nat : @some : nat : nat : nat : nat : @parameter : @storage
+        SWAP;       # nat : nat : @some : nat : nat : nat : nat : @parameter : @storage
+        DROP;       # nat : @some : nat : nat : nat : nat : @parameter : @storage
+        PUSH bytes 0x00000000000000000000000000000000000000000000000000000000000000; # bytes : nat : @some : nat : nat : nat : nat : @parameter : @storage
+        DIG 2;      # @some : bytes : nat : nat : nat : nat : nat : @parameter : @storage
+        PUSH bytes 0x050a00000020; # bytes : @some : bytes : nat : nat : nat : nat : nat : @parameter : @storage
+        CONCAT;     # bytes : bytes : nat : nat : nat : nat : nat : @parameter : @storage
+        CONCAT;     # bytes : nat : nat : nat : nat : nat : @parameter : @storage
+        UNPACK bls12_381_fr; # option bls12_381_fr : nat : nat : nat : nat : nat : @parameter : @storage
+        IF_NONE
+          {
+            UNIT;       # unit : nat : nat : nat : nat : nat : @parameter : @storage
+            FAILWITH;   # FAILED
+          }
+          {}; # @some : nat : nat : nat : nat : nat : @parameter : @storage
+        INT;        # int : nat : nat : nat : nat : nat : @parameter : @storage
+        ISNAT;      # option nat : nat : nat : nat : nat : nat : @parameter : @storage
+        IF_NONE
+          {
+            PUSH int 336; # int : nat : nat : nat : nat : nat : @parameter : @storage
+            FAILWITH;   # FAILED
+          }
+          {}; # @some : nat : nat : nat : nat : nat : @parameter : @storage
+        MUL;        # nat : nat : nat : nat : nat : @parameter : @storage
+        DIG 3;      # nat : nat : nat : nat : nat : @parameter : @storage
+        ADD;        # nat : nat : nat : nat : @parameter : @storage
+        DUG 2;      # nat : nat : nat : nat : @parameter : @storage
+        # loop step # nat : nat : nat : nat : @parameter : @storage
+        PUSH nat 1; # nat : nat : nat : nat : nat : @parameter : @storage
+        ADD;        # nat : nat : nat : nat : @parameter : @storage
+        DUP;        # nat : nat : nat : nat : nat : @parameter : @storage
+        DUP 3;      # nat : nat : nat : nat : nat : nat : @parameter : @storage
+        COMPARE;    # int : nat : nat : nat : nat : @parameter : @storage
+        GT;         # bool : nat : nat : nat : nat : @parameter : @storage
+      }; # nat : nat : nat : nat : @parameter : @storage
+    DROP 2;     # nat : nat : @parameter : @storage
+    # sp.verify(utils_1.value == 255) # nat : nat : @parameter : @storage
+    DUP;        # nat : nat : nat : @parameter : @storage
+    PUSH nat 255; # nat : nat : nat : nat : @parameter : @storage
+    COMPARE;    # int : nat : nat : @parameter : @storage
+    EQ;         # bool : nat : nat : @parameter : @storage
+    IF
+      {}
+      {
+        PUSH string "WrongCondition: utils_1.value == 255"; # string : nat : nat : @parameter : @storage
+        FAILWITH;   # FAILED
+      }; # nat : nat : @parameter : @storage
+    # utils_3 = sp.local("utils_3", sp.len(sp.bytes('0xffff'))) # nat : nat : @parameter : @storage
+    PUSH bytes 0xffff; # bytes : nat : nat : @parameter : @storage
+    SIZE;       # nat : nat : nat : @parameter : @storage
+    # utils_4 = sp.local("utils_4", 0) # nat : nat : nat : @parameter : @storage
+    PUSH nat 0; # nat : nat : nat : nat : @parameter : @storage
+    SWAP;       # nat : nat : nat : nat : @parameter : @storage
+    # for utils_5 in sp.range(0, utils_3.value): ... (sp.TNat) # nat : nat : nat : nat : @parameter : @storage
+    DUP;        # nat : nat : nat : nat : nat : @parameter : @storage
+    DUG 2;      # nat : nat : nat : nat : nat : @parameter : @storage
+    PUSH nat 0; # nat : nat : nat : nat : nat : nat : @parameter : @storage
+    DUP;        # nat : nat : nat : nat : nat : nat : nat : @parameter : @storage
+    DUP 3;      # nat : nat : nat : nat : nat : nat : nat : nat : @parameter : @storage
+    COMPARE;    # int : nat : nat : nat : nat : nat : nat : @parameter : @storage
+    GT;         # bool : nat : nat : nat : nat : nat : nat : @parameter : @storage
+    LOOP
+      {
+        # compute_utils_329 = sp.local("compute_utils_329", sp.slice(sp.bytes('0xffff'), utils_5, 1).open_some(message = sp.unit)) # nat : nat : nat : nat : nat : nat : @parameter : @storage
+        PUSH bytes 0xffff; # bytes : nat : nat : nat : nat : nat : nat : @parameter : @storage
+        PUSH nat 1; # nat : bytes : nat : nat : nat : nat : nat : nat : @parameter : @storage
+        DUP 3;      # nat : nat : bytes : nat : nat : nat : nat : nat : nat : @parameter : @storage
+        SLICE;      # option bytes : nat : nat : nat : nat : nat : nat : @parameter : @storage
+        IF_NONE
+          {
+            UNIT;       # unit : nat : nat : nat : nat : nat : nat : @parameter : @storage
+            FAILWITH;   # FAILED
+          }
+          {}; # @some : nat : nat : nat : nat : nat : nat : @parameter : @storage
+        # compute_utils_330 = sp.local("compute_utils_330", sp.as_nat(utils_3.value - (utils_5 + 1)) * 2) # @some : nat : nat : nat : nat : nat : nat : @parameter : @storage
+        PUSH nat 2; # nat : @some : nat : nat : nat : nat : nat : nat : @parameter : @storage
+        PUSH nat 1; # nat : nat : @some : nat : nat : nat : nat : nat : nat : @parameter : @storage
+        DUP 4;      # nat : nat : nat : @some : nat : nat : nat : nat : nat : nat : @parameter : @storage
+        ADD;        # nat : nat : @some : nat : nat : nat : nat : nat : nat : @parameter : @storage
+        DUP 7;      # nat : nat : nat : @some : nat : nat : nat : nat : nat : nat : @parameter : @storage
+        SUB;        # int : nat : @some : nat : nat : nat : nat : nat : nat : @parameter : @storage
+        ISNAT;      # option nat : nat : @some : nat : nat : nat : nat : nat : nat : @parameter : @storage
+        IF_NONE
+          {
+            PUSH int 330; # int : nat : @some : nat : nat : nat : nat : nat : nat : @parameter : @storage
+            FAILWITH;   # FAILED
+          }
+          {}; # @some : nat : @some : nat : nat : nat : nat : nat : nat : @parameter : @storage
+        MUL;        # nat : @some : nat : nat : nat : nat : nat : nat : @parameter : @storage
+        # utils_4.value += sp.as_nat(sp.to_int(sp.unpack((sp.bytes('0x050a00000020') + compute_utils_329.value) + sp.bytes('0x00000000000000000000000000000000000000000000000000000000000000'), sp.TBls12_381_fr).open_some(message = sp.unit))) * sp.michelson("\n            DUP;\n            PUSH nat 0;\n            COMPARE;\n            NEQ;\n            LOOP\n            {\n                PUSH nat 0;\n                PUSH nat 2;\n                DUP 3;\n                EDIV;\n                IF_NONE\n                {\n                    UNIT;\n                    FAILWITH;\n                }\n                {\n                    CDR;\n                };\n                COMPARE;\n                NEQ;\n                IF\n                {\n                    SWAP;\n                    DUP;\n                    DUG 2;\n                    DIG 3;\n                    MUL;\n                    DUG 2;\n                }\n                {};\n                PUSH nat 1;\n                SWAP;\n                LSR;\n                SWAP;\n                DUP;\n                MUL;\n                SWAP;\n                DUP;\n                PUSH nat 0;\n                COMPARE;\n                NEQ;\n            };\n            DROP 2;\n            ")(compute_utils_330.value, 16, 1) # nat : @some : nat : nat : nat : nat : nat : nat : @parameter : @storage
+        PUSH nat 1; # nat : nat : @some : nat : nat : nat : nat : nat : nat : @parameter : @storage
+        PUSH nat 16; # nat : nat : nat : @some : nat : nat : nat : nat : nat : nat : @parameter : @storage
+        DUP 3;      # nat : nat : nat : nat : @some : nat : nat : nat : nat : nat : nat : @parameter : @storage
+        DUP;        # nat : nat : nat : nat : nat : @some : nat : nat : nat : nat : nat : nat : @parameter : @storage
+        PUSH nat 0; # nat : nat : nat : nat : nat : nat : @some : nat : nat : nat : nat : nat : nat : @parameter : @storage
+        COMPARE;    # int : nat : nat : nat : nat : @some : nat : nat : nat : nat : nat : nat : @parameter : @storage
+        NEQ;        # bool : nat : nat : nat : nat : @some : nat : nat : nat : nat : nat : nat : @parameter : @storage
+        LOOP
+          {
+            PUSH nat 0; # nat : nat : nat : nat : nat : @some : nat : nat : nat : nat : nat : nat : @parameter : @storage
+            PUSH nat 2; # nat : nat : nat : nat : nat : nat : @some : nat : nat : nat : nat : nat : nat : @parameter : @storage
+            DUP 3;      # nat : nat : nat : nat : nat : nat : nat : @some : nat : nat : nat : nat : nat : nat : @parameter : @storage
+            EDIV;       # option (pair nat nat) : nat : nat : nat : nat : nat : @some : nat : nat : nat : nat : nat : nat : @parameter : @storage
+            IF_NONE
+              {
+                UNIT;       # unit : nat : nat : nat : nat : nat : @some : nat : nat : nat : nat : nat : nat : @parameter : @storage
+                FAILWITH;   # FAILED
+              }
+              {
+                CDR;        # nat : nat : nat : nat : nat : nat : @some : nat : nat : nat : nat : nat : nat : @parameter : @storage
+              }; # nat : nat : nat : nat : nat : nat : @some : nat : nat : nat : nat : nat : nat : @parameter : @storage
+            COMPARE;    # int : nat : nat : nat : nat : @some : nat : nat : nat : nat : nat : nat : @parameter : @storage
+            NEQ;        # bool : nat : nat : nat : nat : @some : nat : nat : nat : nat : nat : nat : @parameter : @storage
+            IF
+              {
+                SWAP;       # nat : nat : nat : nat : @some : nat : nat : nat : nat : nat : nat : @parameter : @storage
+                DUP;        # nat : nat : nat : nat : nat : @some : nat : nat : nat : nat : nat : nat : @parameter : @storage
+                DUG 2;      # nat : nat : nat : nat : nat : @some : nat : nat : nat : nat : nat : nat : @parameter : @storage
+                DIG 3;      # nat : nat : nat : nat : nat : @some : nat : nat : nat : nat : nat : nat : @parameter : @storage
+                MUL;        # nat : nat : nat : nat : @some : nat : nat : nat : nat : nat : nat : @parameter : @storage
+                DUG 2;      # nat : nat : nat : nat : @some : nat : nat : nat : nat : nat : nat : @parameter : @storage
+              }
+              {}; # nat : nat : nat : nat : @some : nat : nat : nat : nat : nat : nat : @parameter : @storage
+            PUSH nat 1; # nat : nat : nat : nat : nat : @some : nat : nat : nat : nat : nat : nat : @parameter : @storage
+            SWAP;       # nat : nat : nat : nat : nat : @some : nat : nat : nat : nat : nat : nat : @parameter : @storage
+            LSR;        # nat : nat : nat : nat : @some : nat : nat : nat : nat : nat : nat : @parameter : @storage
+            SWAP;       # nat : nat : nat : nat : @some : nat : nat : nat : nat : nat : nat : @parameter : @storage
+            DUP;        # nat : nat : nat : nat : nat : @some : nat : nat : nat : nat : nat : nat : @parameter : @storage
+            MUL;        # nat : nat : nat : nat : @some : nat : nat : nat : nat : nat : nat : @parameter : @storage
+            SWAP;       # nat : nat : nat : nat : @some : nat : nat : nat : nat : nat : nat : @parameter : @storage
+            DUP;        # nat : nat : nat : nat : nat : @some : nat : nat : nat : nat : nat : nat : @parameter : @storage
+            PUSH nat 0; # nat : nat : nat : nat : nat : nat : @some : nat : nat : nat : nat : nat : nat : @parameter : @storage
+            COMPARE;    # int : nat : nat : nat : nat : @some : nat : nat : nat : nat : nat : nat : @parameter : @storage
+            NEQ;        # bool : nat : nat : nat : nat : @some : nat : nat : nat : nat : nat : nat : @parameter : @storage
+          }; # nat : nat : nat : nat : @some : nat : nat : nat : nat : nat : nat : @parameter : @storage
+        DROP 2;     # nat : nat : @some : nat : nat : nat : nat : nat : nat : @parameter : @storage
+        SWAP;       # nat : nat : @some : nat : nat : nat : nat : nat : nat : @parameter : @storage
+        DROP;       # nat : @some : nat : nat : nat : nat : nat : nat : @parameter : @storage
+        PUSH bytes 0x00000000000000000000000000000000000000000000000000000000000000; # bytes : nat : @some : nat : nat : nat : nat : nat : nat : @parameter : @storage
+        DIG 2;      # @some : bytes : nat : nat : nat : nat : nat : nat : nat : @parameter : @storage
+        PUSH bytes 0x050a00000020; # bytes : @some : bytes : nat : nat : nat : nat : nat : nat : nat : @parameter : @storage
+        CONCAT;     # bytes : bytes : nat : nat : nat : nat : nat : nat : nat : @parameter : @storage
+        CONCAT;     # bytes : nat : nat : nat : nat : nat : nat : nat : @parameter : @storage
+        UNPACK bls12_381_fr; # option bls12_381_fr : nat : nat : nat : nat : nat : nat : nat : @parameter : @storage
+        IF_NONE
+          {
+            UNIT;       # unit : nat : nat : nat : nat : nat : nat : nat : @parameter : @storage
+            FAILWITH;   # FAILED
+          }
+          {}; # @some : nat : nat : nat : nat : nat : nat : nat : @parameter : @storage
+        INT;        # int : nat : nat : nat : nat : nat : nat : nat : @parameter : @storage
+        ISNAT;      # option nat : nat : nat : nat : nat : nat : nat : nat : @parameter : @storage
+        IF_NONE
+          {
+            PUSH int 336; # int : nat : nat : nat : nat : nat : nat : nat : @parameter : @storage
+            FAILWITH;   # FAILED
+          }
+          {}; # @some : nat : nat : nat : nat : nat : nat : nat : @parameter : @storage
+        MUL;        # nat : nat : nat : nat : nat : nat : nat : @parameter : @storage
+        DIG 3;      # nat : nat : nat : nat : nat : nat : nat : @parameter : @storage
+        ADD;        # nat : nat : nat : nat : nat : nat : @parameter : @storage
+        DUG 2;      # nat : nat : nat : nat : nat : nat : @parameter : @storage
+        # loop step # nat : nat : nat : nat : nat : nat : @parameter : @storage
+        PUSH nat 1; # nat : nat : nat : nat : nat : nat : nat : @parameter : @storage
+        ADD;        # nat : nat : nat : nat : nat : nat : @parameter : @storage
+        DUP;        # nat : nat : nat : nat : nat : nat : nat : @parameter : @storage
+        DUP 3;      # nat : nat : nat : nat : nat : nat : nat : nat : @parameter : @storage
+        COMPARE;    # int : nat : nat : nat : nat : nat : nat : @parameter : @storage
+        GT;         # bool : nat : nat : nat : nat : nat : nat : @parameter : @storage
+      }; # nat : nat : nat : nat : nat : nat : @parameter : @storage
+    DROP 2;     # nat : nat : nat : nat : @parameter : @storage
+    SWAP;       # nat : nat : nat : nat : @parameter : @storage
+    DROP;       # nat : nat : nat : @parameter : @storage
+    SWAP;       # nat : nat : nat : @parameter : @storage
+    DROP;       # nat : nat : @parameter : @storage
+    SWAP;       # nat : nat : @parameter : @storage
+    DROP;       # nat : @parameter : @storage
+    SWAP;       # @parameter : nat : @storage
+    DROP;       # nat : @storage
+    # sp.verify(utils_4.value == 65535) # nat : @storage
+    PUSH nat 65535; # nat : nat : @storage
+    COMPARE;    # int : @storage
+    EQ;         # bool : @storage
+    IF
+      {}
+      {
+        PUSH string "WrongCondition: utils_4.value == 65535"; # string : @storage
+        FAILWITH;   # FAILED
+      }; # @storage
+    NIL operation; # list operation : @storage
+    PAIR;       # pair (list operation) @storage
+  };

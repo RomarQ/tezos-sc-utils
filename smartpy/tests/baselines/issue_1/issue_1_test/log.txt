@@ -1,0 +1,15 @@
+Creating contract KT1TezoooozzSmartPyzzSTATiCzzzwwBFA1
+ -> Unit
+ => smartpy/tests/baselines/issue_1/issue_1_test/step_000_cont_0_storage.tz 1
+ => smartpy/tests/baselines/issue_1/issue_1_test/step_000_cont_0_storage.json 1
+ => smartpy/tests/baselines/issue_1/issue_1_test/step_000_cont_0_sizes.csv 2
+ => smartpy/tests/baselines/issue_1/issue_1_test/step_000_cont_0_storage.py 1
+ => smartpy/tests/baselines/issue_1/issue_1_test/step_000_cont_0_types.py 7
+ => smartpy/tests/baselines/issue_1/issue_1_test/step_000_cont_0_contract.tz 286
+ => smartpy/tests/baselines/issue_1/issue_1_test/step_000_cont_0_contract.json 235
+ => smartpy/tests/baselines/issue_1/issue_1_test/step_000_cont_0_contract.py 25
+ => smartpy/tests/baselines/issue_1/issue_1_test/step_001_cont_0_params.py 1
+ => smartpy/tests/baselines/issue_1/issue_1_test/step_001_cont_0_params.tz 1
+ => smartpy/tests/baselines/issue_1/issue_1_test/step_001_cont_0_params.json 1
+Executing test(sp.record())...
+ -> Unit
