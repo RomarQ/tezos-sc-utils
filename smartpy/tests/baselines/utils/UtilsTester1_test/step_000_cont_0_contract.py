@@ -52,9 +52,9 @@ class Contract(sp.Contract):
     utils_0 = sp.local("utils_0", sp.len(sp.bytes('0x0100')))
     utils_1 = sp.local("utils_1", 0)
     sp.for utils_2 in sp.range(0, utils_0.value):
-      compute_utils_329 = sp.local("compute_utils_329", sp.slice(sp.bytes('0x0100'), utils_2, 1).open_some(message = sp.unit))
-      compute_utils_330 = sp.local("compute_utils_330", sp.as_nat(utils_0.value - (utils_2 + 1)) * 2)
-      utils_1.value += sp.as_nat(sp.to_int(sp.unpack((sp.bytes('0x050a00000020') + compute_utils_329.value) + sp.bytes('0x00000000000000000000000000000000000000000000000000000000000000'), sp.TBls12_381_fr).open_some(message = sp.unit))) * sp.michelson("\n            DUP;\n            PUSH nat 0;\n            COMPARE;\n            NEQ;\n            LOOP\n            {\n                PUSH nat 0;\n                PUSH nat 2;\n                DUP 3;\n                EDIV;\n                IF_NONE\n                {\n                    UNIT;\n                    FAILWITH;\n                }\n                {\n                    CDR;\n                };\n                COMPARE;\n                NEQ;\n                IF\n                {\n                    SWAP;\n                    DUP;\n                    DUG 2;\n                    DIG 3;\n                    MUL;\n                    DUG 2;\n                }\n                {};\n                PUSH nat 1;\n                SWAP;\n                LSR;\n                SWAP;\n                DUP;\n                MUL;\n                SWAP;\n                DUP;\n                PUSH nat 0;\n                COMPARE;\n                NEQ;\n            };\n            DROP 2;\n            ")(compute_utils_330.value, 16, 1)
+      compute_utils_342 = sp.local("compute_utils_342", sp.slice(sp.bytes('0x0100'), utils_2, 1).open_some(message = sp.unit))
+      compute_utils_343 = sp.local("compute_utils_343", sp.as_nat(utils_0.value - (utils_2 + 1)) * 2)
+      utils_1.value += sp.as_nat(sp.to_int(sp.unpack((sp.bytes('0x050a00000020') + compute_utils_342.value) + sp.bytes('0x00000000000000000000000000000000000000000000000000000000000000'), sp.TBls12_381_fr).open_some(message = sp.unit))) * sp.michelson("\n            DUP;\n            PUSH nat 0;\n            COMPARE;\n            NEQ;\n            LOOP\n            {\n                PUSH nat 0;\n                PUSH nat 2;\n                DUP 3;\n                EDIV;\n                IF_NONE\n                {\n                    UNIT;\n                    FAILWITH;\n                }\n                {\n                    CDR;\n                };\n                COMPARE;\n                NEQ;\n                IF\n                {\n                    SWAP;\n                    DUP;\n                    DUG 2;\n                    DIG 3;\n                    MUL;\n                    DUG 2;\n                }\n                {};\n                PUSH nat 1;\n                SWAP;\n                LSR;\n                SWAP;\n                DUP;\n                MUL;\n                SWAP;\n                DUP;\n                PUSH nat 0;\n                COMPARE;\n                NEQ;\n            };\n            DROP 2;\n            ")(compute_utils_343.value, 16, 1)
     sp.verify(utils_1.value == 256)
     sp.verify(self.int_of_bytes(sp.bytes('0x0100')) == 256)
     utils_31 = sp.local("utils_31", 0)
@@ -149,21 +149,45 @@ class Contract(sp.Contract):
     sp.while sp.len(utils_4_bytes.value) < sp.as_nat(compute_utils_126.value):
       utils_4_bytes.value = sp.bytes('0x00') + utils_4_bytes.value
     sp.verify((sp.bytes('0x11') + utils_4_bytes.value) == sp.bytes('0x110000'))
-    sp.verify(True, 'NUMBER_TOO_BIG')
-    utils_51_bytes = sp.local("utils_51_bytes", sp.bytes('0x'))
-    utils_52_value = sp.local("utils_52_value", 54)
-    sp.while utils_52_value.value != 0:
-      utils_51_bytes.value = sp.slice(sp.pack(sp.mul(sp.to_int(utils_52_value.value), sp.bls12_381_fr('0x01'))), 6, 1).open_some() + utils_51_bytes.value
-      utils_52_value.value = utils_52_value.value >> 8
-    sp.verify(utils_51_bytes.value == sp.bytes('0x36'))
+    utils_51_value = sp.local("utils_51_value", 54, sp.TNat)
+    utils_52_left_nibble = sp.local("utils_52_left_nibble", sp.none)
+    utils_53_bytes = sp.local("utils_53_bytes", sp.list([]))
+    sp.while utils_51_value.value != 0:
+      match_pair_smartpy_utils_155_fst, match_pair_smartpy_utils_155_snd = sp.match_tuple(sp.ediv(utils_51_value.value, 16).open_some(), "match_pair_smartpy_utils_155_fst", "match_pair_smartpy_utils_155_snd")
+      utils_51_value.value = match_pair_smartpy_utils_155_fst
+      with utils_52_left_nibble.value.match_cases() as arg:
+        with arg.match('Some') as Some:
+          utils_52_left_nibble.value = sp.none
+          sp.verify(((match_pair_smartpy_utils_155_snd << 4) | Some) < 256, 'NUMBER_TOO_BIG')
+          utils_53_bytes.value.push(sp.slice(sp.pack(sp.mul(sp.to_int((match_pair_smartpy_utils_155_snd << 4) | Some), sp.bls12_381_fr('0x01'))), 6, 1).open_some())
+        with arg.match('None') as None:
+          utils_52_left_nibble.value = sp.some(match_pair_smartpy_utils_155_snd)
+
+    with utils_52_left_nibble.value.match('Some') as Some:
+      utils_52_left_nibble.value = sp.none
+      sp.verify((0 | Some) < 256, 'NUMBER_TOO_BIG')
+      utils_53_bytes.value.push(sp.slice(sp.pack(sp.mul(sp.to_int(0 | Some), sp.bls12_381_fr('0x01'))), 6, 1).open_some())
+    sp.verify(sp.concat(utils_53_bytes.value) == sp.bytes('0x36'))
     sp.verify(sp.slice(sp.pack('TEST_STRING_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'), 6, sp.as_nat(sp.len(sp.pack('TEST_STRING_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX')) - 6)).open_some(message = 'Could not encode string to bytes.') == sp.bytes('0x544553545f535452494e475f585858585858585858585858585858585858585858585858585858585858585858585858585858585858'))
-    sp.verify(sp.len(sp.bytes('0x544553545f535452494e475f585858585858585858585858585858585858585858585858585858585858585858585858585858585858')) < 28948022309329048855892746252171976963317496166410141009864396001978282409984, 'NUMBER_TOO_BIG')
-    utils_53_bytes = sp.local("utils_53_bytes", sp.bytes('0x'))
-    utils_54_value = sp.local("utils_54_value", sp.len(sp.bytes('0x544553545f535452494e475f585858585858585858585858585858585858585858585858585858585858585858585858585858585858')))
+    utils_54_value = sp.local("utils_54_value", sp.len(sp.bytes('0x544553545f535452494e475f585858585858585858585858585858585858585858585858585858585858585858585858585858585858')), sp.TNat)
+    utils_55_left_nibble = sp.local("utils_55_left_nibble", sp.none)
+    utils_56_bytes = sp.local("utils_56_bytes", sp.list([]))
     sp.while utils_54_value.value != 0:
-      utils_53_bytes.value = sp.slice(sp.pack(sp.mul(sp.to_int(utils_54_value.value), sp.bls12_381_fr('0x01'))), 6, 1).open_some() + utils_53_bytes.value
-      utils_54_value.value = utils_54_value.value >> 8
-    lengthBytes = sp.local("lengthBytes", utils_53_bytes.value)
+      match_pair_smartpy_utils_155_fst, match_pair_smartpy_utils_155_snd = sp.match_tuple(sp.ediv(utils_54_value.value, 16).open_some(), "match_pair_smartpy_utils_155_fst", "match_pair_smartpy_utils_155_snd")
+      utils_54_value.value = match_pair_smartpy_utils_155_fst
+      with utils_55_left_nibble.value.match_cases() as arg:
+        with arg.match('Some') as Some:
+          utils_55_left_nibble.value = sp.none
+          sp.verify(((match_pair_smartpy_utils_155_snd << 4) | Some) < 256, 'NUMBER_TOO_BIG')
+          utils_56_bytes.value.push(sp.slice(sp.pack(sp.mul(sp.to_int((match_pair_smartpy_utils_155_snd << 4) | Some), sp.bls12_381_fr('0x01'))), 6, 1).open_some())
+        with arg.match('None') as None:
+          utils_55_left_nibble.value = sp.some(match_pair_smartpy_utils_155_snd)
+
+    with utils_55_left_nibble.value.match('Some') as Some:
+      utils_55_left_nibble.value = sp.none
+      sp.verify((0 | Some) < 256, 'NUMBER_TOO_BIG')
+      utils_56_bytes.value.push(sp.slice(sp.pack(sp.mul(sp.to_int(0 | Some), sp.bls12_381_fr('0x01'))), 6, 1).open_some())
+    lengthBytes = sp.local("lengthBytes", sp.concat(utils_56_bytes.value))
     sp.while sp.len(lengthBytes.value) < 4:
       lengthBytes.value = sp.bytes('0x00') + lengthBytes.value
     sp.verify(sp.unpack(sp.concat(sp.list([sp.bytes('0x05'), sp.bytes('0x01'), lengthBytes.value, sp.bytes('0x544553545f535452494e475f585858585858585858585858585858585858585858585858585858585858585858585858585858585858')])), sp.TString).open_some(message = 'Could not decode bytes to string') == 'TEST_STRING_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX')
@@ -175,32 +199,32 @@ class Contract(sp.Contract):
     utils_0 = sp.local("utils_0", sp.len(_x0))
     utils_1 = sp.local("utils_1", 0)
     sp.for utils_2 in sp.range(0, utils_0.value):
-      compute_smartpy_utils_329 = sp.local("compute_smartpy_utils_329", sp.slice(_x0, utils_2, 1).open_some(message = sp.unit))
-      compute_smartpy_utils_330 = sp.local("compute_smartpy_utils_330", sp.as_nat(utils_0.value - (utils_2 + 1)) * 2)
-      utils_1.value += sp.as_nat(sp.to_int(sp.unpack((sp.bytes('0x050a00000020') + compute_smartpy_utils_329.value) + sp.bytes('0x00000000000000000000000000000000000000000000000000000000000000'), sp.TBls12_381_fr).open_some(message = sp.unit))) * sp.michelson("\n            DUP;\n            PUSH nat 0;\n            COMPARE;\n            NEQ;\n            LOOP\n            {\n                PUSH nat 0;\n                PUSH nat 2;\n                DUP 3;\n                EDIV;\n                IF_NONE\n                {\n                    UNIT;\n                    FAILWITH;\n                }\n                {\n                    CDR;\n                };\n                COMPARE;\n                NEQ;\n                IF\n                {\n                    SWAP;\n                    DUP;\n                    DUG 2;\n                    DIG 3;\n                    MUL;\n                    DUG 2;\n                }\n                {};\n                PUSH nat 1;\n                SWAP;\n                LSR;\n                SWAP;\n                DUP;\n                MUL;\n                SWAP;\n                DUP;\n                PUSH nat 0;\n                COMPARE;\n                NEQ;\n            };\n            DROP 2;\n            ")(compute_smartpy_utils_330.value, 16, 1)
+      compute_smartpy_utils_342 = sp.local("compute_smartpy_utils_342", sp.slice(_x0, utils_2, 1).open_some(message = sp.unit))
+      compute_smartpy_utils_343 = sp.local("compute_smartpy_utils_343", sp.as_nat(utils_0.value - (utils_2 + 1)) * 2)
+      utils_1.value += sp.as_nat(sp.to_int(sp.unpack((sp.bytes('0x050a00000020') + compute_smartpy_utils_342.value) + sp.bytes('0x00000000000000000000000000000000000000000000000000000000000000'), sp.TBls12_381_fr).open_some(message = sp.unit))) * sp.michelson("\n            DUP;\n            PUSH nat 0;\n            COMPARE;\n            NEQ;\n            LOOP\n            {\n                PUSH nat 0;\n                PUSH nat 2;\n                DUP 3;\n                EDIV;\n                IF_NONE\n                {\n                    UNIT;\n                    FAILWITH;\n                }\n                {\n                    CDR;\n                };\n                COMPARE;\n                NEQ;\n                IF\n                {\n                    SWAP;\n                    DUP;\n                    DUG 2;\n                    DIG 3;\n                    MUL;\n                    DUG 2;\n                }\n                {};\n                PUSH nat 1;\n                SWAP;\n                LSR;\n                SWAP;\n                DUP;\n                MUL;\n                SWAP;\n                DUP;\n                PUSH nat 0;\n                COMPARE;\n                NEQ;\n            };\n            DROP 2;\n            ")(compute_smartpy_utils_343.value, 16, 1)
     sp.result(utils_1.value)
 
   @sp.private_lambda()
-  def int_of_string(_x1):
-    utils_3 = sp.local("utils_3", _x1)
-    sp.if sp.michelson("\n            DUP;\n            SIZE;\n            DIG 2;\n            SWAP;\n            PUSH nat 0;\n            SLICE;\n            IF_NONE\n                {\n                    DROP;\n                    PUSH bool False;\n                }\n                {\n                    COMPARE;\n                    EQ;\n                };\n            ")('-', _x1):
-      utils_3.value = sp.slice(_x1, 1, sp.as_nat(sp.len(_x1) - 1)).open_some(message = '')
+  def int_of_string(_x2):
+    utils_3 = sp.local("utils_3", _x2)
+    sp.if sp.michelson("\n            DUP;\n            SIZE;\n            DIG 2;\n            SWAP;\n            PUSH nat 0;\n            SLICE;\n            IF_NONE\n                {\n                    DROP;\n                    PUSH bool False;\n                }\n                {\n                    COMPARE;\n                    EQ;\n                };\n            ")('-', _x2):
+      utils_3.value = sp.slice(_x2, 1, sp.as_nat(sp.len(_x2) - 1)).open_some(message = '')
     utils_4 = sp.local("utils_4", 0)
     sp.for utils_5 in sp.range(0, sp.len(utils_3.value)):
       utils_4.value = (10 * utils_4.value) + {'0' : 0, '1' : 1, '2' : 2, '3' : 3, '4' : 4, '5' : 5, '6' : 6, '7' : 7, '8' : 8, '9' : 9}[sp.slice(utils_3.value, utils_5, 1).open_some()]
-    sp.if sp.michelson("\n            DUP;\n            SIZE;\n            DIG 2;\n            SWAP;\n            PUSH nat 0;\n            SLICE;\n            IF_NONE\n                {\n                    DROP;\n                    PUSH bool False;\n                }\n                {\n                    COMPARE;\n                    EQ;\n                };\n            ")('-', _x1):
+    sp.if sp.michelson("\n            DUP;\n            SIZE;\n            DIG 2;\n            SWAP;\n            PUSH nat 0;\n            SLICE;\n            IF_NONE\n                {\n                    DROP;\n                    PUSH bool False;\n                }\n                {\n                    COMPARE;\n                    EQ;\n                };\n            ")('-', _x2):
       utils_4.value *= -1
     sp.result(utils_4.value)
 
   @sp.private_lambda()
-  def math_median(_x2):
+  def math_median(_x4):
     utils_6_hist = sp.local("utils_6_hist", {})
-    sp.for utils_7_x in _x2:
+    sp.for utils_7_x in _x4:
       sp.if utils_6_hist.value.contains(utils_7_x):
         utils_6_hist.value[utils_7_x] += 1
       sp.else:
         utils_6_hist.value[utils_7_x] = 1
-    compute_smartpy_utils_90 = sp.local("compute_smartpy_utils_90", sp.len(_x2))
+    compute_smartpy_utils_90 = sp.local("compute_smartpy_utils_90", sp.len(_x4))
     utils_8_result = sp.local("utils_8_result", 0)
     utils_9_half = sp.local("utils_9_half", compute_smartpy_utils_90.value // 2)
     utils_10_use_average = sp.local("utils_10_use_average", (utils_9_half.value * 2) == compute_smartpy_utils_90.value)
@@ -224,16 +248,16 @@ class Contract(sp.Contract):
     sp.result(utils_8_result.value)
 
   @sp.private_lambda()
-  def math_pow(_x3):
-    sp.result(sp.michelson("\n            DUP;\n            PUSH nat 0;\n            COMPARE;\n            NEQ;\n            LOOP\n            {\n                PUSH nat 0;\n                PUSH nat 2;\n                DUP 3;\n                EDIV;\n                IF_NONE\n                {\n                    UNIT;\n                    FAILWITH;\n                }\n                {\n                    CDR;\n                };\n                COMPARE;\n                NEQ;\n                IF\n                {\n                    SWAP;\n                    DUP;\n                    DUG 2;\n                    DIG 3;\n                    MUL;\n                    DUG 2;\n                }\n                {};\n                PUSH nat 1;\n                SWAP;\n                LSR;\n                SWAP;\n                DUP;\n                MUL;\n                SWAP;\n                DUP;\n                PUSH nat 0;\n                COMPARE;\n                NEQ;\n            };\n            DROP 2;\n            ")(_x3.exponent, _x3.base, 1))
+  def math_pow(_x6):
+    sp.result(sp.michelson("\n            DUP;\n            PUSH nat 0;\n            COMPARE;\n            NEQ;\n            LOOP\n            {\n                PUSH nat 0;\n                PUSH nat 2;\n                DUP 3;\n                EDIV;\n                IF_NONE\n                {\n                    UNIT;\n                    FAILWITH;\n                }\n                {\n                    CDR;\n                };\n                COMPARE;\n                NEQ;\n                IF\n                {\n                    SWAP;\n                    DUP;\n                    DUG 2;\n                    DIG 3;\n                    MUL;\n                    DUG 2;\n                }\n                {};\n                PUSH nat 1;\n                SWAP;\n                LSR;\n                SWAP;\n                DUP;\n                MUL;\n                SWAP;\n                DUP;\n                PUSH nat 0;\n                COMPARE;\n                NEQ;\n            };\n            DROP 2;\n            ")(_x6.exponent, _x6.base, 1))
 
   @sp.private_lambda()
-  def string_ends_with(_x4):
-    sp.result(sp.michelson("\n            DUP;\n            SIZE;\n            DUP 3;\n            SIZE;\n            SWAP;\n            PAIR;\n            DUP;\n            UNPAIR;\n            COMPARE;\n            GE;\n            IF\n            {\n                UNPAIR;\n                DUP 2;\n                SWAP;\n                SUB;\n                ABS; # ABS is secure here because we already validated that (text length is greater or equal to postfix)\n                SLICE;\n                IF_NONE\n                {\n                    DROP;\n                    PUSH bool False;\n                }\n                {\n                    COMPARE;\n                    EQ;\n                };\n            }\n            {\n                DROP 3;\n                PUSH bool False;\n            };\n            ")(_x4.text, _x4.postfix))
+  def string_ends_with(_x8):
+    sp.result(sp.michelson("\n            DUP;\n            SIZE;\n            DUP 3;\n            SIZE;\n            SWAP;\n            PAIR;\n            DUP;\n            UNPAIR;\n            COMPARE;\n            GE;\n            IF\n            {\n                UNPAIR;\n                DUP 2;\n                SWAP;\n                SUB;\n                ABS; # ABS is secure here because we already validated that (text length is greater or equal to postfix)\n                SLICE;\n                IF_NONE\n                {\n                    DROP;\n                    PUSH bool False;\n                }\n                {\n                    COMPARE;\n                    EQ;\n                };\n            }\n            {\n                DROP 3;\n                PUSH bool False;\n            };\n            ")(_x8.text, _x8.postfix))
 
   @sp.private_lambda()
-  def string_of_int(_x5):
-    utils_13 = sp.local("utils_13", abs(_x5))
+  def string_of_int(_x10):
+    utils_13 = sp.local("utils_13", abs(_x10))
     utils_14 = sp.local("utils_14", sp.list([]))
     sp.if utils_13.value == 0:
       utils_14.value.push('0')
@@ -241,24 +265,24 @@ class Contract(sp.Contract):
       utils_14.value.push({0 : '0', 1 : '1', 2 : '2', 3 : '3', 4 : '4', 5 : '5', 6 : '6', 7 : '7', 8 : '8', 9 : '9'}[utils_13.value % 10])
       utils_13.value //= 10
     utils_15 = sp.local("utils_15", sp.concat(utils_14.value))
-    sp.if _x5 < 0:
+    sp.if _x10 < 0:
       utils_15.value = '-' + utils_15.value
     sp.result(utils_15.value)
 
   @sp.private_lambda()
-  def string_split(_x6):
+  def string_split(_x12):
     utils_16 = sp.local("utils_16", 0)
     utils_17 = sp.local("utils_17", sp.list([]))
-    sp.for utils_18 in sp.range(0, sp.len(_x6.text)):
-      sp.if sp.slice(_x6.text, utils_18, 1).open_some() == _x6.separator:
-        utils_17.value.push(sp.slice(_x6.text, utils_16.value, sp.as_nat(utils_18 - utils_16.value)).open_some())
+    sp.for utils_18 in sp.range(0, sp.len(_x12.text)):
+      sp.if sp.slice(_x12.text, utils_18, 1).open_some() == _x12.separator:
+        utils_17.value.push(sp.slice(_x12.text, utils_16.value, sp.as_nat(utils_18 - utils_16.value)).open_some())
         utils_16.value = utils_18 + 1
-    sp.if sp.len(_x6.text) > 0:
-      utils_17.value.push(sp.slice(_x6.text, utils_16.value, sp.as_nat(sp.len(_x6.text) - utils_16.value)).open_some())
+    sp.if sp.len(_x12.text) > 0:
+      utils_17.value.push(sp.slice(_x12.text, utils_16.value, sp.as_nat(sp.len(_x12.text) - utils_16.value)).open_some())
     sp.result(utils_17.value.rev())
 
   @sp.private_lambda()
-  def string_starts_with(_x7):
-    sp.result(sp.michelson("\n            DUP;\n            SIZE;\n            DIG 2;\n            SWAP;\n            PUSH nat 0;\n            SLICE;\n            IF_NONE\n                {\n                    DROP;\n                    PUSH bool False;\n                }\n                {\n                    COMPARE;\n                    EQ;\n                };\n            ")(_x7.prefix, _x7.text))
+  def string_starts_with(_x14):
+    sp.result(sp.michelson("\n            DUP;\n            SIZE;\n            DIG 2;\n            SWAP;\n            PUSH nat 0;\n            SLICE;\n            IF_NONE\n                {\n                    DROP;\n                    PUSH bool False;\n                }\n                {\n                    COMPARE;\n                    EQ;\n                };\n            ")(_x14.prefix, _x14.text))
 
 sp.add_compilation_target("test", Contract())
